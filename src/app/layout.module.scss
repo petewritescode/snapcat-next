@@ -1,0 +1,6 @@
+@use '@/styles/tokens';
+
+.html {
+  background-color: tokens.$color-light-grey;
+  font-family: tokens.$font-dm-sans;
+}
