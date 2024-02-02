@@ -1,4 +1,4 @@
-@use 'sass:color';
+@use 'sass:color' as color;
 
 $color-white: rgb(255, 255, 255);
 $color-white-75: color.adjust($color-white, $alpha: -0.25);
