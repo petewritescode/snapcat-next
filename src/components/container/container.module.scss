@@ -1,0 +1,14 @@
+@use '@/styles/tokens' as tokens;
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: tokens.$spacing-l tokens.$spacing-m;
+}
+
+.shallow {
+  padding-top: tokens.$spacing-m;
+  padding-bottom: tokens.$spacing-m;
+}

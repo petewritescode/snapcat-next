@@ -1,0 +1,23 @@
+@use '@/styles/tokens' as tokens;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: tokens.$color-red;
+  box-shadow: tokens.$box-shadow;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer {
+  text-align: center;
+}
+
+.footer a {
+  color: inherit;
+}
