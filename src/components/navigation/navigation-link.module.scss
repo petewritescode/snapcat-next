@@ -1,0 +1,29 @@
+@use '@/styles/tokens' as tokens;
+
+.link {
+  padding: tokens.$spacing-s;
+  color: tokens.$color-white;
+  text-decoration: none;
+  border-radius: tokens.$border-radius-s;
+  background-color: tokens.$color-black-20;
+
+  &:hover:not(.linkActive) {
+    background-color: tokens.$color-black-40;
+  }
+
+  &.linkActive {
+    background-color: tokens.$color-white;
+    color: tokens.$color-red;
+  }
+}
+
+.icon {
+  display: none;
+}
+
+@media (min-width: 30rem) {
+  .icon {
+    display: inline-block;
+    margin-right: tokens.$spacing-s;
+  }
+}

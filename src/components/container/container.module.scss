@@ -1,8 +1,7 @@
 @use '@/styles/tokens' as tokens;
 
 .container {
-  width: 100%;
-  max-width: 1200px;
+  max-width: 75rem;
   margin-right: auto;
   margin-left: auto;
   padding: tokens.$spacing-l tokens.$spacing-m;

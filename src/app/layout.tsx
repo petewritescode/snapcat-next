@@ -1,10 +1,14 @@
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { config as fontAwesomeConfig } from '@fortawesome/fontawesome-svg-core';
+import { AppLayout } from '@/components/app-layout/app-layout';
 import '@/styles/base.scss';
 import styles from './layout.module.scss';
 import clsx from 'clsx';
 import type { Metadata } from 'next';
 import { DM_Sans } from 'next/font/google';
 import { FC, ReactNode } from 'react';
-import { AppLayout } from '@/components/app-layout/app-layout';
+
+fontAwesomeConfig.autoAddCss = false;
 
 export type RootLayoutProps = {
   children: ReactNode;

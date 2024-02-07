@@ -2,6 +2,7 @@ import { FC, ReactNode } from 'react';
 import styles from './app-layout.module.scss';
 import { Container } from '../container/container';
 import { Logo } from '../logo/logo';
+import { Navigation } from '../navigation/navigation';
 
 export type AppLayoutProps = {
   children: ReactNode;
@@ -12,11 +13,13 @@ export const AppLayout: FC<AppLayoutProps> = ({ children }) => (
     <header className={styles.header}>
       <Container shallow>
         <div className={styles.wrapper}>
-          <div className={styles.logoWrapper}>
+          <div>
             <Logo />
           </div>
 
-          <div>{/* <Navigation /> */}</div>
+          <div>
+            <Navigation />
+          </div>
         </div>
       </Container>
     </header>
