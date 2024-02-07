@@ -1,20 +1,12 @@
 import { getImages } from '@/api/get-images';
+import { ImageGrid } from '@/components/image-grid/image-grid';
+import { NextPage } from 'next';
 import NextImage from 'next/image';
-import { FC } from 'react';
 
-const HomePage: FC = async () => {
+const HomePage: NextPage = async () => {
   const images = await getImages();
 
-  return images.map((image) => (
-    <div key={image.id}>
-      <NextImage
-        src={image.url}
-        alt="Cat image"
-        width={image.width}
-        height={image.height}
-      />
-    </div>
-  ));
+  return <ImageGrid images={images} />;
 };
 
 export default HomePage;

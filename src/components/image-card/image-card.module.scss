@@ -1,0 +1,15 @@
+@use '@/styles/tokens' as tokens;
+
+.imageCard {
+  position: relative;
+  height: 0;
+  padding-bottom: 100%;
+  overflow: hidden;
+  border-radius: tokens.$border-radius-m;
+  background-color: tokens.$color-mid-grey;
+  box-shadow: tokens.$box-shadow;
+}
+
+.image {
+  object-fit: cover;
+}

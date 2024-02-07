@@ -1,0 +1,7 @@
+@use '@/styles/tokens' as tokens;
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -1 * tokens.$spacing-s;
+}

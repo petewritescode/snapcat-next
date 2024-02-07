@@ -1,0 +1,18 @@
+@use '@/styles/tokens' as tokens;
+
+.gridItem {
+  width: 100%;
+  padding: tokens.$spacing-s;
+
+  @media (min-width: 30rem) {
+    width: 50%;
+  }
+
+  @media (min-width: 50rem) {
+    width: 33.333333%;
+  }
+
+  @media (min-width: 70rem) {
+    width: 25%;
+  }
+}
