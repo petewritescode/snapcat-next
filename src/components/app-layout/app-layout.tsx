@@ -3,15 +3,14 @@ import styles from './app-layout.module.scss';
 import { Container } from '../container/container';
 import { Logo } from '../logo/logo';
 import { Navigation } from '../navigation/navigation';
-import { cookies } from 'next/headers';
-import { cookieNames } from '@/constants/cookie-names';
+import { getUserId } from '@/utils/get-user-id';
 
 export type AppLayoutProps = {
   children: ReactNode;
 };
 
 export const AppLayout: FC<AppLayoutProps> = ({ children }) => {
-  const userId = cookies().get(cookieNames.userId)?.value ?? 'N/A';
+  const userId = getUserId();
 
   return (
     <>

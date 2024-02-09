@@ -10,5 +10,7 @@ const config: Config = {
   collectCoverage: true,
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
+  resetMocks: true,
+  restoreMocks: true,
 };
 export default createJestConfig(config);
