@@ -33,7 +33,7 @@ export const AppLayout: FC<AppLayoutProps> = ({ children }) => {
 
       <footer className={styles.footer}>
         <Container>
-          Random user ID: {userId} — Built by{' '}
+          User ID: {userId} — Built by{' '}
           <a
             href="https://github.com/petewritescode"
             target="_blank"
