@@ -13,7 +13,7 @@ export const makeRequest = async <T>(
 
   const headers: HeadersInit = {
     'x-api-key': process.env.API_KEY,
-    ...(method === 'POST' ? { 'Content-Type': 'application/json' } : {}),
+    ...(body ? { 'Content-Type': 'application/json' } : {}),
   };
 
   const response = await fetch(`${process.env.API_BASE_URL}/${resource}`, {

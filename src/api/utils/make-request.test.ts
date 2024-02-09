@@ -75,7 +75,7 @@ describe('makeRequest', () => {
     );
   });
 
-  it('includes the JSON content type header for POST requests only', async () => {
+  it('includes the JSON content type header only when there is body data', async () => {
     const fetchSpy = jest
       .spyOn(global, 'fetch')
       .mockResolvedValue(successResponse);
@@ -94,21 +94,9 @@ describe('makeRequest', () => {
 
     fetchSpy.mockClear();
 
-    await makeRequest('lorem-ipsum', { method: 'DELETE' });
-
-    expect(fetchSpy).toHaveBeenCalledTimes(1);
-    expect(fetchSpy).toHaveBeenCalledWith(
-      `${process.env.API_BASE_URL}/lorem-ipsum`,
-      expect.not.objectContaining({
-        headers: expect.objectContaining({
-          'Content-Type': 'application/json',
-        }),
-      }),
-    );
-
-    fetchSpy.mockClear();
-
-    await makeRequest('lorem-ipsum', { method: 'POST' });
+    await makeRequest('lorem-ipsum', {
+      body: JSON.stringify({ lorem: 'ipsum' }),
+    });
 
     expect(fetchSpy).toHaveBeenCalledTimes(1);
     expect(fetchSpy).toHaveBeenCalledWith(
