@@ -3,7 +3,7 @@
 import { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import cx from 'clsx';
+import clsx from 'clsx';
 import styles from './navigation-link.module.scss';
 import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
@@ -22,7 +22,7 @@ export const NavigationLink: FC<NavigationLinkProps> = ({
 }) => {
   const segment = useSelectedLayoutSegment() ?? routes.home;
   const isActive = segment === href;
-  const className = cx(styles.link, { [styles.linkActive]: isActive });
+  const className = clsx(styles.link, { [styles.linkActive]: isActive });
 
   return (
     <Link href={href} className={className}>
