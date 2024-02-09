@@ -1,12 +1,18 @@
+import { getFavourites } from '@/api/get-favourites';
 import { getImages } from '@/api/get-images';
 import { ImageGrid } from '@/components/image-grid/image-grid';
+import { getUserId } from '@/utils/get-user-id';
 import { NextPage } from 'next';
-import NextImage from 'next/image';
 
 const HomePage: NextPage = async () => {
-  const images = await getImages();
+  const userId = getUserId();
 
-  return <ImageGrid images={images} />;
+  const [images, favourites] = await Promise.all([
+    getImages(),
+    getFavourites(userId),
+  ]);
+
+  return <ImageGrid images={images} favourites={favourites} />;
 };
 
 export default HomePage;

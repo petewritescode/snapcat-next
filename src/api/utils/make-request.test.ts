@@ -21,7 +21,121 @@ describe('makeRequest', () => {
     expect(fetchSpy).toHaveBeenCalledTimes(1);
     expect(fetchSpy).toHaveBeenCalledWith(
       `${process.env.API_BASE_URL}/lorem-ipsum`,
-      { headers: { 'x-api-key': process.env.API_KEY } },
+      expect.any(Object),
+    );
+  });
+
+  it('makes a GET request by default', async () => {
+    const fetchSpy = jest
+      .spyOn(global, 'fetch')
+      .mockResolvedValue(successResponse);
+
+    await makeRequest('lorem-ipsum');
+
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+    expect(fetchSpy).toHaveBeenCalledWith(
+      `${process.env.API_BASE_URL}/lorem-ipsum`,
+      expect.objectContaining({
+        method: 'GET',
+      }),
+    );
+  });
+
+  it('uses the specified request method', async () => {
+    const fetchSpy = jest
+      .spyOn(global, 'fetch')
+      .mockResolvedValue(successResponse);
+
+    await makeRequest('lorem-ipsum', { method: 'POST' });
+
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+    expect(fetchSpy).toHaveBeenCalledWith(
+      `${process.env.API_BASE_URL}/lorem-ipsum`,
+      expect.objectContaining({
+        method: 'POST',
+      }),
+    );
+  });
+
+  it('includes the API key header', async () => {
+    const fetchSpy = jest
+      .spyOn(global, 'fetch')
+      .mockResolvedValue(successResponse);
+
+    await makeRequest('lorem-ipsum');
+
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+    expect(fetchSpy).toHaveBeenCalledWith(
+      `${process.env.API_BASE_URL}/lorem-ipsum`,
+      expect.objectContaining({
+        headers: {
+          'x-api-key': process.env.API_KEY,
+        },
+      }),
+    );
+  });
+
+  it('includes the JSON content type header for POST requests only', async () => {
+    const fetchSpy = jest
+      .spyOn(global, 'fetch')
+      .mockResolvedValue(successResponse);
+
+    await makeRequest('lorem-ipsum');
+
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+    expect(fetchSpy).toHaveBeenCalledWith(
+      `${process.env.API_BASE_URL}/lorem-ipsum`,
+      expect.not.objectContaining({
+        headers: expect.objectContaining({
+          'Content-Type': 'application/json',
+        }),
+      }),
+    );
+
+    fetchSpy.mockClear();
+
+    await makeRequest('lorem-ipsum', { method: 'DELETE' });
+
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+    expect(fetchSpy).toHaveBeenCalledWith(
+      `${process.env.API_BASE_URL}/lorem-ipsum`,
+      expect.not.objectContaining({
+        headers: expect.objectContaining({
+          'Content-Type': 'application/json',
+        }),
+      }),
+    );
+
+    fetchSpy.mockClear();
+
+    await makeRequest('lorem-ipsum', { method: 'POST' });
+
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+    expect(fetchSpy).toHaveBeenCalledWith(
+      `${process.env.API_BASE_URL}/lorem-ipsum`,
+      expect.objectContaining({
+        headers: expect.objectContaining({
+          'Content-Type': 'application/json',
+        }),
+      }),
+    );
+  });
+
+  it('includes the request body', async () => {
+    const fetchSpy = jest
+      .spyOn(global, 'fetch')
+      .mockResolvedValue(successResponse);
+
+    await makeRequest('lorem-ipsum', {
+      body: JSON.stringify({ lorem: 'ipsum' }),
+    });
+
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+    expect(fetchSpy).toHaveBeenCalledWith(
+      `${process.env.API_BASE_URL}/lorem-ipsum`,
+      expect.objectContaining({
+        body: '{"lorem":"ipsum"}',
+      }),
     );
   });
 

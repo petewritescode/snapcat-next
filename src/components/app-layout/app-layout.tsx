@@ -32,7 +32,7 @@ export const AppLayout: FC<AppLayoutProps> = ({ children }) => {
 
       <footer className={styles.footer}>
         <Container>
-          User ID: {userId} — Built by{' '}
+          {userId} — Built by{' '}
           <a
             href="https://github.com/petewritescode"
             target="_blank"
