@@ -1,8 +1,8 @@
 import { ApiImage } from '@/types/api-image';
 import { Image } from '@/types/image';
-import { mapApiImageToImage } from './map-api-image-to-image';
+import { mapImage } from './map-image';
 
-describe('mapApiImageToImage', () => {
+describe('mapImage', () => {
   it('maps an API image to an image, stripping unneeded additional properties', () => {
     const apiImage = {
       id: 'abc123',
@@ -16,6 +16,6 @@ describe('mapApiImageToImage', () => {
       url: 'https://image.com/cat.jpg',
     };
 
-    expect(mapApiImageToImage(apiImage)).toStrictEqual(image);
+    expect(mapImage(apiImage)).toStrictEqual(image);
   });
 });

@@ -9,22 +9,31 @@ jest.mock('./utils/make-request', () => ({
 
 const makeRequestMock = jest.mocked(makeRequest);
 
-const apiImages: ApiImage[] = [
+const apiImages = [
   {
     id: 'abc',
     url: 'https://image.com/cat1.jpg',
     width: 200,
     height: 100,
-  },
+  } as ApiImage,
   {
     id: 'bcd',
     url: 'https://image.com/cat2.jpg',
     width: 300,
     height: 150,
-  },
+  } as ApiImage,
 ];
 
-const images: Image[] = apiImages;
+const images: Image[] = [
+  {
+    id: 'abc',
+    url: 'https://image.com/cat1.jpg',
+  },
+  {
+    id: 'bcd',
+    url: 'https://image.com/cat2.jpg',
+  },
+];
 
 describe('getImages', () => {
   it('calls the correct API endpoint', async () => {
@@ -35,7 +44,7 @@ describe('getImages', () => {
     expect(makeRequestMock).toHaveBeenCalledWith('images?limit=100');
   });
 
-  it('returns the mapped images', async () => {
+  it('returns the mapped images with additional properties stripped', async () => {
     makeRequestMock.mockReturnValue(Promise.resolve(apiImages));
 
     const result = await getImages();
