@@ -13,3 +13,9 @@
 .image {
   object-fit: cover;
 }
+
+.favourite {
+  position: absolute;
+  top: tokens.$spacing-s;
+  right: tokens.$spacing-s;
+}

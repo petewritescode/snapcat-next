@@ -1,0 +1,26 @@
+@use '@/styles/tokens' as tokens;
+
+.favourite {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  background-color: tokens.$color-white-75;
+  border: 0;
+  border-radius: tokens.$border-radius-full;
+  box-shadow: tokens.$box-shadow;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: tokens.$color-black;
+
+  &.active {
+    color: tokens.$color-red;
+  }
+}
+
+.icon {
+  position: relative;
+  top: 1px;
+}

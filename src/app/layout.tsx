@@ -19,10 +19,10 @@ export const metadata: Metadata = {
 };
 
 const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-dm-sans' });
-const classNames = clsx(styles.html, dmSans.variable);
+const className = clsx(styles.html, dmSans.variable);
 
 const RootLayout: FC<RootLayoutProps> = ({ children }) => (
-  <html lang="en" className={classNames}>
+  <html lang="en" className={className}>
     <body>
       <AppLayout>{children}</AppLayout>
     </body>
