@@ -1,5 +1,4 @@
 import { getUserId } from './get-user-id';
-import { cookies } from 'next/headers';
 
 const mockGetCookie = jest.fn();
 

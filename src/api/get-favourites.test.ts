@@ -1,15 +1,20 @@
-import { ApiImage } from '@/types/api-image';
-import { Image } from '@/types/image';
+import { getUserId } from '@/utils/get-user-id';
 import { getFavourites } from './get-favourites';
 import { makeRequest } from './utils/make-request';
 import { ApiFavourite } from '@/types/api-favourite';
 import { Favourite } from '@/types/favourite';
 
+jest.mock('@/utils/get-user-id', () => ({
+  getUserId: jest.fn(),
+}));
+
+const mockgetUserId = jest.mocked(getUserId);
+
 jest.mock('./utils/make-request', () => ({
   makeRequest: jest.fn(),
 }));
 
-const makeRequestMock = jest.mocked(makeRequest);
+const mockMakeRequest = jest.mocked(makeRequest);
 
 const apiFavourites = [
   {
@@ -37,19 +42,21 @@ const favourites: Favourite[] = [
 
 describe('getFavourites', () => {
   it('calls the correct API endpoint', async () => {
-    makeRequestMock.mockReturnValue(Promise.resolve(apiFavourites));
+    mockgetUserId.mockReturnValue('a1b2c3d4');
+    mockMakeRequest.mockReturnValue(Promise.resolve(apiFavourites));
 
-    await getFavourites('a1b2c3d4');
+    await getFavourites();
 
-    expect(makeRequestMock).toHaveBeenCalledWith(
+    expect(mockMakeRequest).toHaveBeenCalledWith(
       'favourites?limit=100&sub_id=a1b2c3d4',
     );
   });
 
   it('returns the mapped favourites with additional properties stripped', async () => {
-    makeRequestMock.mockReturnValue(Promise.resolve(apiFavourites));
+    mockgetUserId.mockReturnValue('a1b2c3d4');
+    mockMakeRequest.mockReturnValue(Promise.resolve(apiFavourites));
 
-    const result = await getFavourites('a1b2c3d4');
+    const result = await getFavourites();
 
     expect(result).toStrictEqual(favourites);
   });
