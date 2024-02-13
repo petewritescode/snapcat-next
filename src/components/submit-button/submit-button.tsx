@@ -1,32 +1,27 @@
 'use client';
 
 import { FC, ReactNode } from 'react';
+import { useFormStatus } from 'react-dom';
 
-type ButtonProps = {
+export type SubmitButtonProps = {
   children: ReactNode;
   className?: string;
-  disabled?: boolean;
   label?: string;
-  onClick?: () => void | Promise<void>;
 };
 
-export const Button: FC<ButtonProps> = ({
+export const SubmitButton: FC<SubmitButtonProps> = ({
   children,
   className,
-  disabled,
   label,
-  onClick,
 }) => {
-  const handleClick = () => {
-    onClick?.();
-  };
+  const { pending } = useFormStatus();
 
   return (
     <button
+      type="submit"
       className={className}
       aria-label={label}
-      disabled={disabled}
-      onClick={handleClick}
+      disabled={pending}
     >
       {children}
     </button>

@@ -1,16 +1,16 @@
 'use client';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as faHeartOutline } from '@fortawesome/free-regular-svg-icons';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
-import { FC, useOptimistic, useState, useTransition } from 'react';
-import styles from './favourite-button.module.scss';
-import { Button } from '../button/button';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { addFavourite } from '@/actions/add-favourite';
+import { FC, useOptimistic, useState } from 'react';
+import { SubmitButton } from '../submit-button/submit-button';
 import { deleteFavourite } from '@/actions/delete-favourite';
+import { addFavourite } from '@/actions/add-favourite';
+import styles from './favourite-button.module.scss';
 
-type FavouriteButtonProps = {
+export type FavouriteButtonProps = {
   imageId: string;
   userId: string;
   initialFavouriteId?: number;
@@ -23,43 +23,40 @@ export const FavouriteButton: FC<FavouriteButtonProps> = ({
   userId,
   initialFavouriteId,
 }) => {
-  const [isPending, startTransition] = useTransition();
   const [favouriteId, setFavouriteId] = useState(initialFavouriteId);
-
   const [optimisticFavouriteId, setOptimisticIsFavourite] = useOptimistic(
     favouriteId,
     (_state, isFavourite: boolean) =>
       isFavourite ? temporaryFavouriteId : undefined,
   );
-
-  const icon = optimisticFavouriteId ? faHeart : faHeartOutline;
-  const label = optimisticFavouriteId ? 'Unfavourite' : 'Favourite';
+  const isFavourite = optimisticFavouriteId !== undefined;
+  const icon = isFavourite ? faHeart : faHeartOutline;
+  const label = isFavourite ? 'Unfavourite' : 'Favourite';
   const className = clsx(styles.favourite, {
-    [styles.active]: optimisticFavouriteId,
+    [styles.active]: isFavourite,
   });
 
-  const handleClick = () => {
-    startTransition(async () => {
-      if (optimisticFavouriteId) {
-        setOptimisticIsFavourite(false);
+  const handleSubmit = async () => {
+    setOptimisticIsFavourite(!isFavourite);
+
+    try {
+      if (isFavourite) {
         await deleteFavourite(optimisticFavouriteId);
         setFavouriteId(undefined);
       } else {
-        setOptimisticIsFavourite(true);
         const newFavouriteId = await addFavourite(imageId, userId);
         setFavouriteId(newFavouriteId);
       }
-    });
+    } catch {
+      // Suppress errors so we don't interrupt the user experience
+    }
   };
 
   return (
-    <Button
-      className={className}
-      disabled={isPending}
-      label={label}
-      onClick={handleClick}
-    >
-      <FontAwesomeIcon icon={icon} className={styles.icon} />
-    </Button>
+    <form action={handleSubmit}>
+      <SubmitButton className={className} label={label}>
+        <FontAwesomeIcon icon={icon} className={styles.icon} />
+      </SubmitButton>
+    </form>
   );
 };

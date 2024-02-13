@@ -2,4 +2,4 @@
 
 import { deleteFavourite as deleteFavouriteApi } from '@/api/delete-favourite';
 
-export const deleteFavourite = (id: number) => deleteFavouriteApi(id);
+export const deleteFavourite = async (id: number) => deleteFavouriteApi(id);

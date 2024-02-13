@@ -13,13 +13,13 @@ export type ImageGridProps = {
 export const ImageGrid: FC<ImageGridProps> = ({ images, favourites }) => (
   <Grid>
     {images.map((image) => {
-      const favouriteId = favourites.find(
+      const favourite = favourites.find(
         (favourite) => favourite.imageId === image.id,
-      )?.id;
+      );
 
       return (
         <GridItem key={image.id}>
-          <ImageCard image={image} favouriteId={favouriteId} />
+          <ImageCard image={image} favourite={favourite} />
         </GridItem>
       );
     })}
