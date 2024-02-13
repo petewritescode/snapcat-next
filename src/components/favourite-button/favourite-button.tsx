@@ -12,7 +12,6 @@ import styles from './favourite-button.module.scss';
 
 export type FavouriteButtonProps = {
   imageId: string;
-  userId: string;
   initialFavouriteId?: number;
 };
 
@@ -20,7 +19,6 @@ const temporaryFavouriteId = 999999999;
 
 export const FavouriteButton: FC<FavouriteButtonProps> = ({
   imageId,
-  userId,
   initialFavouriteId,
 }) => {
   const [favouriteId, setFavouriteId] = useState(initialFavouriteId);
@@ -44,7 +42,7 @@ export const FavouriteButton: FC<FavouriteButtonProps> = ({
         await deleteFavourite(optimisticFavouriteId);
         setFavouriteId(undefined);
       } else {
-        const newFavouriteId = await addFavourite(imageId, userId);
+        const newFavouriteId = await addFavourite(imageId);
         setFavouriteId(newFavouriteId);
       }
     } catch {
