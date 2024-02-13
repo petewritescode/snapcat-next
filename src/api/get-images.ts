@@ -4,7 +4,9 @@ import { makeRequest } from './utils/make-request';
 import { mapImage } from './utils/map-image';
 
 export const getImages = async (): Promise<Image[]> => {
-  const apiImages = await makeRequest<ApiImage[]>('images?limit=100');
+  const apiImages = await makeRequest<ApiImage[]>(
+    'images?limit=100&order=DESC',
+  );
 
   return apiImages.map(mapImage);
 };
