@@ -16,17 +16,15 @@ jest.mock('./utils/make-request', () => ({
 
 const mockMakeRequest = jest.mocked(makeRequest);
 
-const apiFavourites = [
+const apiFavourites: ApiFavourite[] = [
   {
     id: 123,
     image_id: 'abc123',
-    created_at: '2024-01-01T12.34.56.000Z',
-  } as ApiFavourite,
+  },
   {
     id: 234,
     image_id: 'bcd234',
-    created_at: '2024-02-02T12.34.56.000Z',
-  } as ApiFavourite,
+  },
 ];
 
 const favourites: Favourites = {
@@ -42,7 +40,7 @@ describe('getFavourites', () => {
     await getFavourites();
 
     expect(mockMakeRequest).toHaveBeenCalledWith(
-      'favourites?limit=100&sub_id=a1b2c3d4',
+      'favourites?limit=100&attach_image=0&order=DESC&sub_id=a1b2c3d4',
     );
   });
 

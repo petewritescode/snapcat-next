@@ -8,7 +8,9 @@ export const getFavourites = async (): Promise<Favourites> => {
   const userId = getUserId();
 
   const apiFavourites = await makeRequest<ApiFavourite[]>(
-    `favourites?limit=100&sub_id=${encodeURIComponent(userId)}`,
+    `favourites?limit=100&attach_image=0&order=DESC&sub_id=${encodeURIComponent(
+      userId,
+    )}`,
   );
 
   return mapFavourites(apiFavourites);
