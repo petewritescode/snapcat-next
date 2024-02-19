@@ -2,7 +2,7 @@ import { getUserId } from '@/utils/get-user-id';
 import { getFavourites } from './get-favourites';
 import { makeRequest } from './utils/make-request';
 import { ApiFavourite } from '@/types/api-favourite';
-import { Favourite } from '@/types/favourite';
+import { Favourites } from '@/types/favourites';
 
 jest.mock('@/utils/get-user-id', () => ({
   getUserId: jest.fn(),
@@ -29,16 +29,10 @@ const apiFavourites = [
   } as ApiFavourite,
 ];
 
-const favourites: Favourite[] = [
-  {
-    id: 123,
-    imageId: 'abc123',
-  },
-  {
-    id: 234,
-    imageId: 'bcd234',
-  },
-];
+const favourites: Favourites = {
+  abc123: { id: 123 },
+  bcd234: { id: 234 },
+};
 
 describe('getFavourites', () => {
   it('calls the correct API endpoint', async () => {
@@ -52,7 +46,7 @@ describe('getFavourites', () => {
     );
   });
 
-  it('returns the mapped favourites with additional properties stripped', async () => {
+  it('returns the mapped favourites', async () => {
     mockgetUserId.mockReturnValue('a1b2c3d4');
     mockMakeRequest.mockReturnValue(Promise.resolve(apiFavourites));
 
