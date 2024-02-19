@@ -11,7 +11,7 @@ export const Container: FC<ContainerProps> = ({
   children,
   shallow = false,
 }) => {
-  const className = clsx(styles.container, { [styles.shallow]: shallow });
+  const className = clsx(styles.container, shallow && styles.shallow);
 
   return <div className={className}>{children}</div>;
 };

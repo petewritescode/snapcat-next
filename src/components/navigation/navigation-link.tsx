@@ -22,7 +22,7 @@ export const NavigationLink: FC<NavigationLinkProps> = ({
 }) => {
   const segment = useSelectedLayoutSegment() ?? routes.home;
   const isActive = segment === href;
-  const className = clsx(styles.link, { [styles.linkActive]: isActive });
+  const className = clsx(styles.link, isActive && styles.linkActive);
 
   return (
     <Link href={href} className={className}>

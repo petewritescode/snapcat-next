@@ -26,9 +26,10 @@ export const FavouriteButton: FC<FavouriteButtonProps> = ({
     useOptimistic(isFavourite);
   const icon = optimisticIsFavourite ? faHeart : faHeartOutline;
   const label = optimisticIsFavourite ? 'Unfavourite' : 'Favourite';
-  const className = clsx(styles.favourite, {
-    [styles.active]: optimisticIsFavourite,
-  });
+  const className = clsx(
+    styles.favourite,
+    optimisticIsFavourite && styles.active,
+  );
 
   const handleSubmit = async () => {
     setOptimisticIsFavourite(!isFavourite);
