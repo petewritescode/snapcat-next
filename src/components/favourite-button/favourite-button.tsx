@@ -9,17 +9,18 @@ import { SubmitButton } from '../submit-button/submit-button';
 import { deleteFavourite } from '@/actions/delete-favourite';
 import { addFavourite } from '@/actions/add-favourite';
 import styles from './favourite-button.module.scss';
+import { Favourite } from '@/types/favourite';
 
 export type FavouriteButtonProps = {
   imageId: string;
-  initialFavouriteId?: number;
+  favourite?: Favourite;
 };
 
 export const FavouriteButton: FC<FavouriteButtonProps> = ({
   imageId,
-  initialFavouriteId,
+  favourite,
 }) => {
-  const [favouriteId, setFavouriteId] = useState(initialFavouriteId);
+  const [favouriteId, setFavouriteId] = useState(favourite?.id);
   const isFavourite = favouriteId !== undefined;
   const [optimisticIsFavourite, setOptimisticIsFavourite] =
     useOptimistic(isFavourite);

@@ -15,7 +15,7 @@ export const ImageCard: FC<ImageCardProps> = ({ image, favourite }) => (
     <NextImage className={styles.image} src={image.url} alt="Cat image" fill />
 
     <div className={styles.favourite}>
-      <FavouriteButton imageId={image.id} initialFavouriteId={favourite?.id} />
+      <FavouriteButton imageId={image.id} favourite={favourite} />
     </div>
   </div>
 );
