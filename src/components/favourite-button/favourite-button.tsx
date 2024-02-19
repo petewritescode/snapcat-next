@@ -15,23 +15,18 @@ export type FavouriteButtonProps = {
   initialFavouriteId?: number;
 };
 
-const temporaryFavouriteId = 999999999;
-
 export const FavouriteButton: FC<FavouriteButtonProps> = ({
   imageId,
   initialFavouriteId,
 }) => {
   const [favouriteId, setFavouriteId] = useState(initialFavouriteId);
-  const [optimisticFavouriteId, setOptimisticIsFavourite] = useOptimistic(
-    favouriteId,
-    (_state, isFavourite: boolean) =>
-      isFavourite ? temporaryFavouriteId : undefined,
-  );
-  const isFavourite = optimisticFavouriteId !== undefined;
-  const icon = isFavourite ? faHeart : faHeartOutline;
-  const label = isFavourite ? 'Unfavourite' : 'Favourite';
+  const isFavourite = favouriteId !== undefined;
+  const [optimisticIsFavourite, setOptimisticIsFavourite] =
+    useOptimistic(isFavourite);
+  const icon = optimisticIsFavourite ? faHeart : faHeartOutline;
+  const label = optimisticIsFavourite ? 'Unfavourite' : 'Favourite';
   const className = clsx(styles.favourite, {
-    [styles.active]: isFavourite,
+    [styles.active]: optimisticIsFavourite,
   });
 
   const handleSubmit = async () => {
@@ -39,7 +34,7 @@ export const FavouriteButton: FC<FavouriteButtonProps> = ({
 
     try {
       if (isFavourite) {
-        await deleteFavourite(optimisticFavouriteId);
+        await deleteFavourite(favouriteId);
         setFavouriteId(undefined);
       } else {
         const newFavouriteId = await addFavourite(imageId);
