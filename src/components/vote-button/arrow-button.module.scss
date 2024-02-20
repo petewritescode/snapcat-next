@@ -8,10 +8,11 @@
   background-color: transparent;
   font-size: 1.2rem;
   cursor: pointer;
-}
+  color: tokens.$color-black;
 
-.active {
-  color: tokens.$color-red;
+  &.active {
+    color: tokens.$color-red;
+  }
 }
 
 .icon {
