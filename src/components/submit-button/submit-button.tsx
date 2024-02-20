@@ -7,12 +7,14 @@ export type SubmitButtonProps = {
   children: ReactNode;
   className?: string;
   label?: string;
+  onSubmit?: () => Promise<void>;
 };
 
 export const SubmitButton: FC<SubmitButtonProps> = ({
   children,
   className,
   label,
+  onSubmit,
 }) => {
   const { pending } = useFormStatus();
 
@@ -22,6 +24,7 @@ export const SubmitButton: FC<SubmitButtonProps> = ({
       className={className}
       aria-label={label}
       disabled={pending}
+      formAction={onSubmit}
     >
       {children}
     </button>

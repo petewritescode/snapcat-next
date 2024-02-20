@@ -10,6 +10,7 @@ import { deleteFavourite } from '@/actions/delete-favourite';
 import { addFavourite } from '@/actions/add-favourite';
 import styles from './favourite-button.module.scss';
 import { Favourite } from '@/types/favourite';
+import { optimisticUpdateId } from '@/constants/optimistic-update-id';
 
 export type FavouriteButtonProps = {
   imageId: string;
@@ -18,29 +19,26 @@ export type FavouriteButtonProps = {
 
 export const FavouriteButton: FC<FavouriteButtonProps> = ({
   imageId,
-  favourite,
+  favourite: initialFavourite,
 }) => {
-  const [favouriteId, setFavouriteId] = useState(favourite?.id);
-  const isFavourite = favouriteId !== undefined;
-  const [optimisticIsFavourite, setOptimisticIsFavourite] =
-    useOptimistic(isFavourite);
-  const icon = optimisticIsFavourite ? faHeart : faHeartOutline;
-  const label = optimisticIsFavourite ? 'Unfavourite' : 'Favourite';
-  const className = clsx(
-    styles.favourite,
-    optimisticIsFavourite && styles.active,
-  );
+  const [favourite, setFavourite] = useState(initialFavourite);
+  const [optimisticFavourite, setOptimisticFavourite] =
+    useOptimistic(favourite);
+  const isFavourite = optimisticFavourite !== undefined;
+  const icon = isFavourite ? faHeart : faHeartOutline;
+  const label = isFavourite ? 'Unfavourite' : 'Favourite';
+  const className = clsx(styles.favourite, isFavourite && styles.active);
 
   const handleSubmit = async () => {
-    setOptimisticIsFavourite(!isFavourite);
+    setOptimisticFavourite(favourite ? undefined : { id: optimisticUpdateId });
 
     try {
       if (isFavourite) {
-        await deleteFavourite(favouriteId);
-        setFavouriteId(undefined);
+        await deleteFavourite(optimisticFavourite.id);
+        setFavourite(undefined);
       } else {
         const newFavouriteId = await addFavourite(imageId);
-        setFavouriteId(newFavouriteId);
+        setFavourite({ id: newFavouriteId });
       }
     } catch {
       // Suppress errors so we don't interrupt the user experience
