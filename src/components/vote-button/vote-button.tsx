@@ -34,10 +34,9 @@ export const VoteButton: FC<VoteButtonProps> = ({
         await deleteVote(vote.userVote.id);
         setVote(newVote);
       } else {
-        const initialVote: Vote = vote ?? { score: 0 };
         const newVote: Vote = {
           score:
-            initialVote.score -
+            (vote?.score ?? 0) -
             (vote?.userVote ? voteDirectionScore[vote.userVote.direction] : 0) +
             voteDirectionScore[direction],
           userVote: {
