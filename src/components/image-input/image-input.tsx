@@ -11,6 +11,7 @@ export const ImageInput: FC = () => {
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     event.target.form?.requestSubmit();
+    event.target.form?.reset();
   };
 
   return (
