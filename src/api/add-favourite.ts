@@ -13,6 +13,7 @@ export const addFavourite = async (imageId: string) => {
   const result = await makeRequest<ApiAddFavouriteResult>('favourites', {
     method: 'POST',
     body,
+    isJson: true,
   });
 
   return result.id;

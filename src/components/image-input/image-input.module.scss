@@ -1,0 +1,30 @@
+@use '@/styles/tokens' as tokens;
+
+.input {
+  display: none;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  padding: 3.125rem;
+  background-color: tokens.$color-mid-grey;
+  border: 1px solid tokens.$color-dark-grey;
+  border-radius: tokens.$border-radius-m;
+  font-size: 2rem;
+  box-shadow: tokens.$box-shadow;
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: tokens.$color-light-grey;
+  }
+}
+
+.input:disabled + .label {
+  color: tokens.$color-black-40;
+}
+
+.icon {
+  margin-bottom: tokens.$spacing-m;
+}

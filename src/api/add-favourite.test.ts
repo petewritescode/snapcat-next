@@ -29,6 +29,7 @@ describe('addFavourite', () => {
     expect(mockMakeRequest).toHaveBeenCalledWith('favourites', {
       method: 'POST',
       body: JSON.stringify({ sub_id: 'a1b2c3d4', image_id: 'abc123' }),
+      isJson: true,
     });
   });
 

@@ -16,6 +16,7 @@ export const addVote = async (imageId: string, direction: VoteDirection) => {
   const result = await makeRequest<ApiAddVoteResult>('votes', {
     method: 'POST',
     body,
+    isJson: true,
   });
 
   return result.id;

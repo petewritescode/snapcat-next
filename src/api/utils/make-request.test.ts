@@ -75,7 +75,7 @@ describe('makeRequest', () => {
     );
   });
 
-  it('includes the JSON content type header only when there is body data', async () => {
+  it('includes the JSON content type header only where requested', async () => {
     const fetchSpy = jest
       .spyOn(global, 'fetch')
       .mockResolvedValue(successResponse);
@@ -94,9 +94,7 @@ describe('makeRequest', () => {
 
     fetchSpy.mockClear();
 
-    await makeRequest('lorem-ipsum', {
-      body: JSON.stringify({ lorem: 'ipsum' }),
-    });
+    await makeRequest('lorem-ipsum', { isJson: true });
 
     expect(fetchSpy).toHaveBeenCalledTimes(1);
     expect(fetchSpy).toHaveBeenCalledWith(

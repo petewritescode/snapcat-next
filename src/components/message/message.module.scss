@@ -1,0 +1,15 @@
+@use '@/styles/tokens' as tokens;
+
+.message {
+  font-size: 1.5rem;
+  color: tokens.$color-dark-grey;
+  text-align: center;
+}
+
+.message a {
+  color: inherit;
+}
+
+.error {
+  color: tokens.$color-red;
+}
