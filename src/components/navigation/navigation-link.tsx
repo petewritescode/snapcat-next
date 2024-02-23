@@ -7,7 +7,6 @@ import clsx from 'clsx';
 import styles from './navigation-link.module.scss';
 import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
-import { routes } from '@/constants/routes';
 
 export type NavigationLinkProps = {
   href: string;
