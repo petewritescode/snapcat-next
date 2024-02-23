@@ -75,38 +75,6 @@ describe('makeRequest', () => {
     );
   });
 
-  it('includes the JSON content type header only where requested', async () => {
-    const fetchSpy = jest
-      .spyOn(global, 'fetch')
-      .mockResolvedValue(successResponse);
-
-    await makeRequest('lorem-ipsum');
-
-    expect(fetchSpy).toHaveBeenCalledTimes(1);
-    expect(fetchSpy).toHaveBeenCalledWith(
-      `${process.env.API_BASE_URL}/lorem-ipsum`,
-      expect.not.objectContaining({
-        headers: expect.objectContaining({
-          'Content-Type': 'application/json',
-        }),
-      }),
-    );
-
-    fetchSpy.mockClear();
-
-    await makeRequest('lorem-ipsum', { isJson: true });
-
-    expect(fetchSpy).toHaveBeenCalledTimes(1);
-    expect(fetchSpy).toHaveBeenCalledWith(
-      `${process.env.API_BASE_URL}/lorem-ipsum`,
-      expect.objectContaining({
-        headers: expect.objectContaining({
-          'Content-Type': 'application/json',
-        }),
-      }),
-    );
-  });
-
   it('includes the request body', async () => {
     const fetchSpy = jest
       .spyOn(global, 'fetch')
@@ -122,6 +90,40 @@ describe('makeRequest', () => {
       expect.objectContaining({
         body: '{"lorem":"ipsum"}',
       }),
+    );
+  });
+
+  it('includes the JSON content type header where requested', async () => {
+    const fetchSpy = jest
+      .spyOn(global, 'fetch')
+      .mockResolvedValue(successResponse);
+
+    await makeRequest('lorem-ipsum', { isJson: true });
+
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+    expect(fetchSpy).toHaveBeenCalledWith(
+      `${process.env.API_BASE_URL}/lorem-ipsum`,
+      expect.objectContaining({
+        headers: expect.objectContaining({
+          'Content-Type': 'application/json',
+        }),
+      }),
+    );
+  });
+
+  it('adds cache tags where specified', async () => {
+    const fetchSpy = jest
+      .spyOn(global, 'fetch')
+      .mockResolvedValue(successResponse);
+
+    await makeRequest('lorem-ipsum', {
+      cacheTags: ['lorem', 'ipsum', 'dolor'],
+    });
+
+    expect(fetchSpy).toHaveBeenCalledTimes(1);
+    expect(fetchSpy).toHaveBeenCalledWith(
+      `${process.env.API_BASE_URL}/lorem-ipsum`,
+      expect.objectContaining({ next: { tags: ['lorem', 'ipsum', 'dolor'] } }),
     );
   });
 

@@ -1,16 +1,17 @@
 import { RequestMethod } from '@/types/request-method';
 
 type Options = {
-  method?: RequestMethod;
   body?: RequestInit['body'];
+  cacheTags?: string[];
   isJson?: boolean;
+  method?: RequestMethod;
 };
 
 export const makeRequest = async <T>(
   resource: string,
   options: Options = {},
 ): Promise<T> => {
-  const { method = 'GET', body, isJson = false } = options;
+  const { body, cacheTags, isJson = false, method = 'GET' } = options;
 
   const headers: HeadersInit = {
     'x-api-key': process.env.API_KEY,
@@ -21,6 +22,7 @@ export const makeRequest = async <T>(
     method,
     headers,
     body,
+    next: { tags: cacheTags },
   });
 
   if (!response.ok) {

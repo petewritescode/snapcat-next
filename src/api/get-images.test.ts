@@ -41,7 +41,10 @@ describe('getImages', () => {
 
     await getImages();
 
-    expect(makeRequestMock).toHaveBeenCalledWith('images?limit=100&order=DESC');
+    expect(makeRequestMock).toHaveBeenCalledWith(
+      'images?limit=100&order=DESC',
+      { cacheTags: ['images'] },
+    );
   });
 
   it('returns the mapped images with additional properties stripped', async () => {

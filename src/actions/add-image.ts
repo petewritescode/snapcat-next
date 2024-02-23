@@ -2,6 +2,7 @@
 
 import { addImage as addImageApi } from '@/api/add-image';
 import { routes } from '@/constants/routes';
+import { revalidateTag } from 'next/cache';
 import { redirect } from 'next/navigation';
 
 export const addImage = async (
@@ -20,5 +21,6 @@ export const addImage = async (
     return "Your file couldn't be saved, please make sure it's an image of a cat";
   }
 
+  revalidateTag('images');
   redirect(routes.home);
 };
