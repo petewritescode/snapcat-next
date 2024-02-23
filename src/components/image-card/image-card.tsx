@@ -15,7 +15,13 @@ export type ImageCardProps = {
 
 export const ImageCard: FC<ImageCardProps> = ({ image, favourite, vote }) => (
   <div className={styles.imageCard}>
-    <NextImage className={styles.image} src={image.url} alt="Cat image" fill />
+    <NextImage
+      className={styles.image}
+      src={image.url}
+      sizes="(max-width: 30rem) 100vw, (max-width: 50rem) 50vw, (max-width: 70rem) 33vw, 25vw"
+      alt="Cat image"
+      fill
+    />
 
     <div className={styles.favourite}>
       <FavouriteButton imageId={image.id} favourite={favourite} />
