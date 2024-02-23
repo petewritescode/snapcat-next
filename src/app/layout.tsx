@@ -15,7 +15,10 @@ export type RootLayoutProps = {
 };
 
 export const metadata: Metadata = {
-  title: 'Snapcat',
+  title: {
+    default: 'Snapcat',
+    template: 'Snapcat | %s',
+  },
 };
 
 const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-dm-sans' });

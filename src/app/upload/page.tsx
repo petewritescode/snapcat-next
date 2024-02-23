@@ -1,5 +1,9 @@
 import { UploadForm } from '@/components/upload-form/upload-form';
-import { NextPage } from 'next';
+import { Metadata, NextPage } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Add image',
+};
 
 const UploadPage: NextPage = () => <UploadForm />;
 
