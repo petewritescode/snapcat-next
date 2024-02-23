@@ -1,0 +1,18 @@
+@use '@/styles/tokens' as tokens;
+
+.loader {
+  width: 7rem;
+  height: 7rem;
+  margin-right: auto;
+  margin-left: auto;
+  border: 5px solid tokens.$color-red-20;
+  border-top-color: tokens.$color-red;
+  border-radius: 50%;
+  animation: spin 1s infinite ease-in-out;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
