@@ -2,7 +2,7 @@
 
 import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { FC, useOptimistic, useState } from 'react';
-import styles from './vote-button.module.scss';
+import styles from './image-vote.module.scss';
 import { Vote } from '@/types/vote';
 import { ArrowButton } from './arrow-button';
 import { VoteDirection } from '@/types/vote-direction';
@@ -11,12 +11,12 @@ import { deleteVoteAction } from '@/actions/delete-vote';
 import { optimisticUpdateId } from '@/constants/optimistic-update-id';
 import { voteDirectionScore } from '@/constants/vote-direction-score';
 
-export type VoteButtonProps = {
+export type ImageVoteProps = {
   imageId: string;
   vote?: Vote;
 };
 
-export const VoteButton: FC<VoteButtonProps> = ({
+export const ImageVote: FC<ImageVoteProps> = ({
   imageId,
   vote: initialVote,
 }) => {

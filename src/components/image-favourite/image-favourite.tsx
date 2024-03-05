@@ -8,16 +8,16 @@ import { FC, useOptimistic, useState } from 'react';
 import { SubmitButton } from '../submit-button/submit-button';
 import { deleteFavouriteAction } from '@/actions/delete-favourite';
 import { addFavouriteAction } from '@/actions/add-favourite';
-import styles from './favourite-button.module.scss';
+import styles from './image-favourite.module.scss';
 import { Favourite } from '@/types/favourite';
 import { optimisticUpdateId } from '@/constants/optimistic-update-id';
 
-export type FavouriteButtonProps = {
+export type ImageFavouriteProps = {
   imageId: string;
   favourite?: Favourite;
 };
 
-export const FavouriteButton: FC<FavouriteButtonProps> = ({
+export const ImageFavourite: FC<ImageFavouriteProps> = ({
   imageId,
   favourite: initialFavourite,
 }) => {
