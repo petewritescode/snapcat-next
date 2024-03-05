@@ -4,21 +4,25 @@ import styles from './arrow-button.module.scss';
 import { SubmitButton } from '../submit-button/submit-button';
 import clsx from 'clsx';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { VoteDirection } from '@/types/vote-direction';
 
 export type ArrowButtonProps = {
   icon: IconProp;
-  label: string;
+  direction: VoteDirection;
   isActive: boolean;
   onClick: () => Promise<void>;
 };
 
 export const ArrowButton: FC<ArrowButtonProps> = ({
   icon,
-  label,
+  direction,
   isActive,
   onClick,
 }) => {
   const className = clsx(styles.button, isActive && styles.active);
+  const actionCopy = isActive ? 'Remove' : 'Add';
+  const directionCopy = direction === 'up' ? 'up' : 'down';
+  const label = `${actionCopy} ${directionCopy} vote`;
 
   return (
     <SubmitButton className={className} label={label} onSubmit={onClick}>

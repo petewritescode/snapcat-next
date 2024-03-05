@@ -26,7 +26,7 @@ export const ImageFavourite: FC<ImageFavouriteProps> = ({
     useOptimistic(favourite);
   const isFavourite = optimisticFavourite !== undefined;
   const icon = isFavourite ? faHeart : faHeartOutline;
-  const label = isFavourite ? 'Unfavourite' : 'Favourite';
+  const label = isFavourite ? 'Remove favourite' : 'Add favourite';
   const className = clsx(styles.favourite, isFavourite && styles.active);
 
   const handleSubmit = async () => {

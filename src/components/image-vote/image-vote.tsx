@@ -65,7 +65,7 @@ export const ImageVote: FC<ImageVoteProps> = ({
     <form className={styles.votes}>
       <ArrowButton
         icon={faArrowUp}
-        label="Vote up"
+        direction="up"
         isActive={optimisticVote?.userVote?.direction === 'up'}
         onClick={handleSubmit('up')}
       />
@@ -74,7 +74,7 @@ export const ImageVote: FC<ImageVoteProps> = ({
 
       <ArrowButton
         icon={faArrowDown}
-        label="Vote down"
+        direction="down"
         isActive={optimisticVote?.userVote?.direction === 'down'}
         onClick={handleSubmit('down')}
       />
