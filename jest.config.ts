@@ -15,8 +15,12 @@ const config: Config = {
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
     prefix: '<rootDir>/',
   }),
+  projects: ['<rootDir>', '<rootDir>/src/components', '<rootDir>/src/jest'],
   resetMocks: true,
   restoreMocks: true,
+  setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
+  testEnvironment: 'node',
+  testPathIgnorePatterns: ['<rootDir>/src/components', '<rootDir>/src/jest'],
 };
 
 export default createJestConfig(config);
