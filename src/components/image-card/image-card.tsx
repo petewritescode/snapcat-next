@@ -11,15 +11,22 @@ export type ImageCardProps = {
   image: Image;
   favourite?: Favourite;
   vote?: Vote;
+  priority?: boolean;
 };
 
-export const ImageCard: FC<ImageCardProps> = ({ image, favourite, vote }) => (
+export const ImageCard: FC<ImageCardProps> = ({
+  image,
+  favourite,
+  vote,
+  priority,
+}) => (
   <div className={styles.imageCard}>
     <NextImage
       className={styles.image}
       src={image.url}
       sizes="(max-width: 30rem) 100vw, (max-width: 50rem) 50vw, (max-width: 70rem) 33vw, 25vw"
       alt="Cat image"
+      priority={priority}
       fill
     />
 

@@ -9,6 +9,8 @@ import { routes } from '@/constants/routes';
 import { NextPage } from 'next';
 import Link from 'next/link';
 
+const highPriorityImageCount = 4;
+
 const HomePage: NextPage = async () => {
   const [images, favourites, votes] = await Promise.all([
     getImages(),
@@ -27,12 +29,13 @@ const HomePage: NextPage = async () => {
 
   return (
     <Grid>
-      {images.map((image) => (
+      {images.map((image, index) => (
         <GridItem key={image.id}>
           <ImageCard
             image={image}
             favourite={favourites[image.id]}
             vote={votes[image.id]}
+            priority={index < highPriorityImageCount}
           />
         </GridItem>
       ))}
