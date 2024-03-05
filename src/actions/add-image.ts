@@ -1,11 +1,11 @@
 'use server';
 
-import { addImage as addImageApi } from '@/api/add-image';
+import { addImage } from '@/api/add-image';
 import { routes } from '@/constants/routes';
 import { revalidateTag } from 'next/cache';
 import { redirect } from 'next/navigation';
 
-export const addImage = async (
+export const addImageAction = async (
   _prevState: string | undefined,
   formData: FormData,
 ) => {
@@ -16,7 +16,7 @@ export const addImage = async (
   }
 
   try {
-    await addImageApi(image);
+    await addImage(image);
   } catch (error) {
     return "Your file couldn't be saved, please make sure it's an image of a cat";
   }

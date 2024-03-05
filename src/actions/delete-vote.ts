@@ -1,5 +1,5 @@
 'use server';
 
-import { deleteVote as deleteVoteApi } from '@/api/delete-vote';
+import { deleteVote } from '@/api/delete-vote';
 
-export const deleteVote = async (id: number) => deleteVoteApi(id);
+export const deleteVoteAction = async (id: number) => deleteVote(id);

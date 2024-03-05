@@ -6,8 +6,8 @@ import styles from './vote-button.module.scss';
 import { Vote } from '@/types/vote';
 import { ArrowButton } from './arrow-button';
 import { VoteDirection } from '@/types/vote-direction';
-import { addVote } from '@/actions/add-vote';
-import { deleteVote } from '@/actions/delete-vote';
+import { addVoteAction } from '@/actions/add-vote';
+import { deleteVoteAction } from '@/actions/delete-vote';
 import { optimisticUpdateId } from '@/constants/optimistic-update-id';
 import { voteDirectionScore } from '@/constants/vote-direction-score';
 
@@ -31,7 +31,7 @@ export const VoteButton: FC<VoteButtonProps> = ({
         };
 
         setOptimisticVote(newVote);
-        await deleteVote(vote.userVote.id);
+        await deleteVoteAction(vote.userVote.id);
         setVote(newVote);
       } else {
         const newVote: Vote = {
@@ -46,7 +46,7 @@ export const VoteButton: FC<VoteButtonProps> = ({
         };
 
         setOptimisticVote(newVote);
-        const newVoteId = await addVote(imageId, direction);
+        const newVoteId = await addVoteAction(imageId, direction);
 
         setVote({
           ...newVote,

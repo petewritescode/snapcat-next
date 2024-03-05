@@ -6,8 +6,8 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import clsx from 'clsx';
 import { FC, useOptimistic, useState } from 'react';
 import { SubmitButton } from '../submit-button/submit-button';
-import { deleteFavourite } from '@/actions/delete-favourite';
-import { addFavourite } from '@/actions/add-favourite';
+import { deleteFavouriteAction } from '@/actions/delete-favourite';
+import { addFavouriteAction } from '@/actions/add-favourite';
 import styles from './favourite-button.module.scss';
 import { Favourite } from '@/types/favourite';
 import { optimisticUpdateId } from '@/constants/optimistic-update-id';
@@ -34,10 +34,10 @@ export const FavouriteButton: FC<FavouriteButtonProps> = ({
 
     try {
       if (isFavourite) {
-        await deleteFavourite(optimisticFavourite.id);
+        await deleteFavouriteAction(optimisticFavourite.id);
         setFavourite(undefined);
       } else {
-        const newFavouriteId = await addFavourite(imageId);
+        const newFavouriteId = await addFavouriteAction(imageId);
         setFavourite({ id: newFavouriteId });
       }
     } catch {
