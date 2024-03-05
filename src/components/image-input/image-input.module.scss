@@ -1,3 +1,4 @@
+@use '@/styles/functions' as functions;
 @use '@/styles/tokens' as tokens;
 
 .input {
@@ -7,11 +8,11 @@
 .label {
   display: flex;
   flex-direction: column;
-  padding: 3.125rem;
+  padding: functions.rem(50px);
   background-color: tokens.$color-mid-grey;
-  border: 1px solid tokens.$color-dark-grey;
+  border: functions.rem(1px) solid tokens.$color-dark-grey;
   border-radius: tokens.$border-radius-m;
-  font-size: 2rem;
+  font-size: functions.rem(32px);
   box-shadow: tokens.$box-shadow;
   text-align: center;
   cursor: pointer;

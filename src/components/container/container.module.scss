@@ -1,7 +1,8 @@
+@use '@/styles/functions' as functions;
 @use '@/styles/tokens' as tokens;
 
 .container {
-  max-width: 75rem;
+  max-width: functions.rem(1200px);
   margin-right: auto;
   margin-left: auto;
   padding: tokens.$spacing-l tokens.$spacing-m;

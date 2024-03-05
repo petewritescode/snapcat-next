@@ -1,3 +1,4 @@
+@use '@/styles/functions' as functions;
 @use '@/styles/tokens' as tokens;
 
 .logo {
@@ -11,13 +12,14 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 3.25rem;
-  height: 3.25rem;
+  z-index: 0;
+  width: functions.rem(50px);
+  height: functions.rem(50px);
   margin-right: tokens.$spacing-m;
   border-radius: 50%;
   background-color: tokens.$color-white;
   color: tokens.$color-red;
-  font-size: 1.9rem;
+  font-size: functions.rem(30px);
 
   &::before {
     content: '';
@@ -42,11 +44,11 @@
   display: none;
 }
 
-@media (min-width: 25rem) {
+@media (min-width: functions.rem(500px)) {
   .copy {
     display: block;
     color: tokens.$color-white;
-    font-size: 2rem;
+    font-size: functions.rem(32px);
     font-weight: bold;
   }
 }

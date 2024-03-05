@@ -1,4 +1,6 @@
-$border-radius-s: 0.25rem;
-$border-radius-m: 0.5rem;
-$border-radius-l: 1rem;
-$border-radius-full: 999rem;
+@use '../functions' as functions;
+
+$border-radius-s: functions.rem(4px);
+$border-radius-m: functions.rem(8px);
+$border-radius-l: functions.rem(16px);
+$border-radius-full: functions.rem(9999px);

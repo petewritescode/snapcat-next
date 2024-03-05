@@ -1,11 +1,12 @@
+@use '@/styles/functions' as functions;
 @use '@/styles/tokens' as tokens;
 
 .loader {
-  width: 7rem;
-  height: 7rem;
+  width: functions.rem(120px);
+  height: functions.rem(120px);
   margin-right: auto;
   margin-left: auto;
-  border: 0.5rem solid tokens.$color-red-20;
+  border: functions.rem(8px) solid tokens.$color-red-20;
   border-top-color: tokens.$color-red;
   border-radius: 50%;
   animation: spin 1s infinite ease-in-out;

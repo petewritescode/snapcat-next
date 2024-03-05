@@ -1,3 +1,5 @@
-$spacing-s: 0.5rem;
-$spacing-m: 1rem;
-$spacing-l: 2rem;
+@use '../functions' as functions;
+
+$spacing-s: functions.rem(8px);
+$spacing-m: functions.rem(16px);
+$spacing-l: functions.rem(32px);

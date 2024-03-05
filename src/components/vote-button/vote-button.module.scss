@@ -1,16 +1,17 @@
+@use '@/styles/functions' as functions;
 @use '@/styles/tokens' as tokens;
 
 .votes {
   display: flex;
   align-items: center;
-  height: 2.5rem;
+  height: functions.rem(40px);
   background-color: tokens.$color-white-75;
   border-radius: tokens.$border-radius-l;
   box-shadow: tokens.$box-shadow;
 }
 
 .score {
-  width: 1.25rem;
+  width: functions.rem(20px);
   text-align: center;
-  font-size: 1.2rem;
+  font-size: functions.rem(18px);
 }

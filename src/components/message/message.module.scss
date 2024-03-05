@@ -1,7 +1,8 @@
+@use '@/styles/functions' as functions;
 @use '@/styles/tokens' as tokens;
 
 .message {
-  font-size: 1.5rem;
+  font-size: functions.rem(24px);
   line-height: 1.5;
   color: tokens.$color-dark-grey;
   text-align: center;
