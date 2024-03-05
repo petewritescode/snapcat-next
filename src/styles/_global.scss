@@ -3,3 +3,14 @@
 *:after {
   box-sizing: border-box;
 }
+
+button {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}

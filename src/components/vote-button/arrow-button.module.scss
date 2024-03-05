@@ -4,11 +4,7 @@
 .button {
   width: functions.rem(40px);
   height: functions.rem(40px);
-  padding: 0;
-  border: 0;
-  background-color: transparent;
   font-size: functions.rem(18px);
-  cursor: pointer;
   color: tokens.$color-black;
 
   &.active {

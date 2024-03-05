@@ -7,7 +7,7 @@ import { Navigation } from '../navigation/navigation';
 export const Header: FC = () => (
   <header className={styles.header}>
     <Container shallow>
-      <div className={styles.wrapper}>
+      <div className={styles.content}>
         <div>
           <Logo />
         </div>

@@ -15,15 +15,18 @@
   font-size: functions.rem(32px);
   box-shadow: tokens.$box-shadow;
   text-align: center;
-  cursor: pointer;
 
-  &:hover {
-    background-color: tokens.$color-light-grey;
+  .input:disabled + & {
+    color: tokens.$color-black-40;
   }
-}
 
-.input:disabled + .label {
-  color: tokens.$color-black-40;
+  .input:not(:disabled) + & {
+    cursor: pointer;
+
+    &:hover {
+      background-color: tokens.$color-light-grey;
+    }
+  }
 }
 
 .icon {

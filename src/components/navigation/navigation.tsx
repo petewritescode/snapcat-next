@@ -5,7 +5,7 @@ import { NavigationLink } from './navigation-link';
 import { routes } from '@/constants/routes';
 
 export const Navigation: FC = () => (
-  <nav className={styles.navigation}>
+  <nav>
     <ul className={styles.list}>
       <li className={styles.item}>
         <NavigationLink href={routes.home} icon={faHome} label="Home" />
