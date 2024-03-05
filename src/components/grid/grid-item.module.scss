@@ -1,19 +1,18 @@
-@use '@/styles/functions' as functions;
 @use '@/styles/tokens' as tokens;
 
 .gridItem {
   width: 100%;
   padding: tokens.$spacing-s;
 
-  @media (min-width: functions.rem(500px)) {
+  @media (min-width: tokens.$breakpoint-s) {
     width: 50%;
   }
 
-  @media (min-width: functions.rem(740px)) {
+  @media (min-width: tokens.$breakpoint-m) {
     width: 33.333333%;
   }
 
-  @media (min-width: functions.rem(980px)) {
+  @media (min-width: tokens.$breakpoint-l) {
     width: 25%;
   }
 }

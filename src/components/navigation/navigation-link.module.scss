@@ -1,4 +1,3 @@
-@use '@/styles/functions' as functions;
 @use '@/styles/tokens' as tokens;
 
 .link {
@@ -22,7 +21,7 @@
   display: none;
 }
 
-@media (min-width: functions.rem(500px)) {
+@media (min-width: tokens.$breakpoint-s) {
   .icon {
     display: inline-block;
     margin-right: tokens.$spacing-s;
