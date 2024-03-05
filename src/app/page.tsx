@@ -4,7 +4,10 @@ import { getVotes } from '@/api/get-votes';
 import { Grid } from '@/components/grid/grid';
 import { GridItem } from '@/components/grid/grid-item';
 import { ImageCard } from '@/components/image-card/image-card';
+import { Message } from '@/components/message/message';
+import { routes } from '@/constants/routes';
 import { NextPage } from 'next';
+import Link from 'next/link';
 
 const HomePage: NextPage = async () => {
   const [images, favourites, votes] = await Promise.all([
@@ -12,6 +15,15 @@ const HomePage: NextPage = async () => {
     getFavourites(),
     getVotes(),
   ]);
+
+  if (!images.length) {
+    return (
+      <Message>
+        You don&apos;t have any images yet.{' '}
+        <Link href={routes.upload}>Upload one now</Link>.
+      </Message>
+    );
+  }
 
   return (
     <Grid>
