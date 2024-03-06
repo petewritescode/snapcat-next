@@ -7,11 +7,11 @@
   border-radius: tokens.$border-radius-s;
   background-color: tokens.$color-black-20;
 
-  &:not(.linkActive):hover {
+  &:not(.active):hover {
     background-color: tokens.$color-black-40;
   }
 
-  &.linkActive {
+  &.active {
     background-color: tokens.$color-white;
     color: tokens.$color-red;
   }

@@ -4,7 +4,7 @@ import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { FC, useOptimistic, useState } from 'react';
 import styles from './image-vote.module.scss';
 import { Vote } from '@/types/vote';
-import { ArrowButton } from './arrow-button';
+import { ArrowButton } from './subcomponents/arrow-button';
 import { VoteDirection } from '@/types/vote-direction';
 import { addVoteAction } from '@/actions/add-vote';
 import { deleteVoteAction } from '@/actions/delete-vote';

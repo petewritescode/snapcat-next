@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styles from './navigation.module.scss';
 import { faHome, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
-import { NavigationLink } from './navigation-link';
+import { NavigationLink } from './subcomponents/navigation-link';
 import { routes } from '@/constants/routes';
 
 export const Navigation: FC = () => (
