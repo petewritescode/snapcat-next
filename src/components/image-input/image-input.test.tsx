@@ -1,6 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import { ImageInput } from './image-input';
-import { useFormStatus } from 'react-dom';
+import {
+  FormStatusNotPending,
+  FormStatusPending,
+  useFormStatus,
+} from 'react-dom';
 import userEvent from '@testing-library/user-event';
 import { FormEvent } from 'react';
 
@@ -11,14 +15,23 @@ jest.mock('react-dom', () => ({
 
 const mockUseFormStatus = jest.mocked(useFormStatus);
 
+const formStatusPending: FormStatusPending = {
+  pending: true,
+  data: new FormData(),
+  method: '',
+  action: '',
+};
+
+const formStatusNotPending: FormStatusNotPending = {
+  pending: false,
+  data: null,
+  method: null,
+  action: null,
+};
+
 describe('ImageInput', () => {
   it('renders an image input', () => {
-    mockUseFormStatus.mockReturnValue({
-      pending: false,
-      data: null,
-      method: null,
-      action: null,
-    });
+    mockUseFormStatus.mockReturnValue(formStatusNotPending);
 
     render(<ImageInput />);
 
@@ -28,12 +41,7 @@ describe('ImageInput', () => {
   });
 
   it('renders a disabled state during submission', () => {
-    mockUseFormStatus.mockReturnValue({
-      pending: true,
-      data: new FormData(),
-      method: '',
-      action: '',
-    });
+    mockUseFormStatus.mockReturnValue(formStatusPending);
 
     render(<ImageInput />);
 
@@ -41,12 +49,7 @@ describe('ImageInput', () => {
   });
 
   it('submits and resets the parent form on change', async () => {
-    mockUseFormStatus.mockReturnValue({
-      pending: false,
-      data: null,
-      method: null,
-      action: null,
-    });
+    mockUseFormStatus.mockReturnValue(formStatusNotPending);
 
     const file = new File([], 'cat.jpg');
 
