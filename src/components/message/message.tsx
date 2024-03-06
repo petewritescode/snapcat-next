@@ -4,11 +4,11 @@ import styles from './message.module.scss';
 
 export type MessageProps = {
   children: ReactNode;
-  isError?: boolean;
+  error?: boolean;
 };
 
-export const Message: FC<MessageProps> = ({ children, isError = false }) => {
-  const className = clsx(styles.message, isError && styles.error);
+export const Message: FC<MessageProps> = ({ children, error = false }) => {
+  const className = clsx(styles.message, error && styles.error);
 
   return <div className={className}>{children}</div>;
 };

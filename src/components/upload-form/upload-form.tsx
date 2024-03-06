@@ -14,7 +14,7 @@ export const UploadForm: FC = () => {
     <>
       {error && (
         <div className={styles.error}>
-          <Message isError>{error}</Message>
+          <Message error>{error}</Message>
         </div>
       )}
 
