@@ -1,9 +1,7 @@
 import { makeRequest } from './utils/make-request';
 import { deleteFavourite } from './delete-favourite';
 
-jest.mock('./utils/make-request', () => ({
-  makeRequest: jest.fn(),
-}));
+jest.mock('./utils/make-request');
 
 const mockMakeRequest = jest.mocked(makeRequest);
 

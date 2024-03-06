@@ -1,9 +1,7 @@
 import { deleteFavourite } from '@/api/delete-favourite';
 import { deleteFavouriteAction } from './delete-favourite';
 
-jest.mock('@/api/delete-favourite', () => ({
-  deleteFavourite: jest.fn(),
-}));
+jest.mock('@/api/delete-favourite');
 
 const mockDeleteFavourite = jest.mocked(deleteFavourite);
 

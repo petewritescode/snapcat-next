@@ -3,16 +3,10 @@ import { makeRequest } from './utils/make-request';
 import { ApiAddFavouriteResult } from '@/types/api-add-favourite-result';
 import { addFavourite } from './add-favourite';
 
-jest.mock('@/utils/get-user-id', () => ({
-  getUserId: jest.fn(),
-}));
+jest.mock('@/utils/get-user-id');
+jest.mock('./utils/make-request');
 
 const mockgetUserId = jest.mocked(getUserId);
-
-jest.mock('./utils/make-request', () => ({
-  makeRequest: jest.fn(),
-}));
-
 const mockMakeRequest = jest.mocked(makeRequest);
 
 const apiResult: ApiAddFavouriteResult = {

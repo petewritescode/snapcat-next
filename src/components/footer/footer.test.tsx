@@ -3,9 +3,7 @@ import { Footer } from './footer';
 import { getUserId } from '@/utils/get-user-id';
 import { ignoreMarkupMatcher } from '@/jest/utils/ignore-markup-matcher';
 
-jest.mock('@/utils/get-user-id', () => ({
-  getUserId: jest.fn(),
-}));
+jest.mock('@/utils/get-user-id');
 
 const mockGetUserId = jest.mocked(getUserId);
 

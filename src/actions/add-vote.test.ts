@@ -1,9 +1,7 @@
 import { addVote } from '@/api/add-vote';
 import { addVoteAction } from './add-vote';
 
-jest.mock('@/api/add-vote', () => ({
-  addVote: jest.fn(),
-}));
+jest.mock('@/api/add-vote');
 
 const mockAddVote = jest.mocked(addVote);
 

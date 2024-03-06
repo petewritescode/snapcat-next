@@ -2,16 +2,10 @@ import { getUserId } from '@/utils/get-user-id';
 import { makeRequest } from './utils/make-request';
 import { addImage } from './add-image';
 
-jest.mock('@/utils/get-user-id', () => ({
-  getUserId: jest.fn(),
-}));
+jest.mock('@/utils/get-user-id');
+jest.mock('./utils/make-request');
 
 const mockgetUserId = jest.mocked(getUserId);
-
-jest.mock('./utils/make-request', () => ({
-  makeRequest: jest.fn(),
-}));
-
 const mockMakeRequest = jest.mocked(makeRequest);
 
 describe('addImage', () => {

@@ -1,9 +1,7 @@
 import { deleteVote } from '@/api/delete-vote';
 import { deleteVoteAction } from './delete-vote';
 
-jest.mock('@/api/delete-vote', () => ({
-  deleteVote: jest.fn(),
-}));
+jest.mock('@/api/delete-vote');
 
 const mockDeleteVote = jest.mocked(deleteVote);
 

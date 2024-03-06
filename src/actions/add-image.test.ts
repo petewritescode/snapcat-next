@@ -3,17 +3,9 @@ import { addImageAction } from './add-image';
 import { revalidateTag } from 'next/cache';
 import { redirect } from 'next/navigation';
 
-jest.mock('@/api/add-image', () => ({
-  addImage: jest.fn(),
-}));
-
-jest.mock('next/cache', () => ({
-  revalidateTag: jest.fn(),
-}));
-
-jest.mock('next/navigation', () => ({
-  redirect: jest.fn(),
-}));
+jest.mock('@/api/add-image');
+jest.mock('next/cache');
+jest.mock('next/navigation');
 
 const mockAddImage = jest.mocked(addImage);
 const mockRevalidateTag = jest.mocked(revalidateTag);

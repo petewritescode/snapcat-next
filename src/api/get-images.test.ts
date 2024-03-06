@@ -3,9 +3,7 @@ import { Image } from '@/types/image';
 import { getImages } from './get-images';
 import { makeRequest } from './utils/make-request';
 
-jest.mock('./utils/make-request', () => ({
-  makeRequest: jest.fn(),
-}));
+jest.mock('./utils/make-request');
 
 const makeRequestMock = jest.mocked(makeRequest);
 

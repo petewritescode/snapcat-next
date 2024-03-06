@@ -1,9 +1,7 @@
 import { addFavourite } from '@/api/add-favourite';
 import { addFavouriteAction } from './add-favourite';
 
-jest.mock('@/api/add-favourite', () => ({
-  addFavourite: jest.fn(),
-}));
+jest.mock('@/api/add-favourite');
 
 const mockAddFavourite = jest.mocked(addFavourite);
 
