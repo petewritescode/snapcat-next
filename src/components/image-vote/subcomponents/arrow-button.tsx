@@ -9,18 +9,18 @@ import { VoteDirection } from '@/types/vote-direction';
 export type ArrowButtonProps = {
   icon: IconProp;
   direction: VoteDirection;
-  isActive: boolean;
+  active: boolean;
   onClick: () => Promise<void>;
 };
 
 export const ArrowButton: FC<ArrowButtonProps> = ({
   icon,
   direction,
-  isActive,
+  active,
   onClick,
 }) => {
-  const className = clsx(styles.button, isActive && styles.active);
-  const actionCopy = isActive ? 'Remove' : 'Add';
+  const className = clsx(styles.button, active && styles.active);
+  const actionCopy = active ? 'Remove' : 'Add';
   const directionCopy = direction === 'up' ? 'up' : 'down';
   const label = `${actionCopy} ${directionCopy} vote`;
 
