@@ -3,24 +3,31 @@ import nextJest from 'next/jest';
 import { pathsToModuleNameMapper } from 'ts-jest';
 import { compilerOptions } from './tsconfig.json';
 
+export type ProjectConfig = Exclude<
+  NonNullable<Config['projects']>[number],
+  string
+>;
+
+export const jsdomFilePattern = '<rootDir>/src/(components|jest)/';
+
+export const sharedProjectConfig: ProjectConfig = {
+  clearMocks: true,
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
+    prefix: '<rootDir>/',
+  }),
+  resetMocks: true,
+  restoreMocks: true,
+};
+
 const createJestConfig = nextJest({
   dir: './',
 });
 
 const config: Config = {
-  clearMocks: true,
   collectCoverage: true,
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
-    prefix: '<rootDir>/',
-  }),
-  projects: ['<rootDir>', '<rootDir>/src/components', '<rootDir>/src/jest'],
-  resetMocks: true,
-  restoreMocks: true,
-  setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
-  testEnvironment: 'node',
-  testPathIgnorePatterns: ['<rootDir>/src/components', '<rootDir>/src/jest'],
+  projects: ['<rootDir>/jest.config.node.ts', '<rootDir>/jest.config.jsdom.ts'],
 };
 
 export default createJestConfig(config);
