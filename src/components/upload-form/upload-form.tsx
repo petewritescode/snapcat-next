@@ -18,7 +18,7 @@ export const UploadForm: FC = () => {
         </div>
       )}
 
-      <form action={formAction}>
+      <form action={formAction} aria-label="Upload image">
         <ImageInput />
       </form>
     </>
