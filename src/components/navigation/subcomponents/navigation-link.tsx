@@ -25,7 +25,9 @@ export const NavigationLink: FC<NavigationLinkProps> = ({
 
   return (
     <Link href={href} className={className}>
-      <FontAwesomeIcon icon={icon} className={styles.icon} />
+      <div className={styles.icon}>
+        <FontAwesomeIcon icon={icon} />
+      </div>
       {label}
     </Link>
   );
