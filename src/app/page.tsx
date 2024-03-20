@@ -6,10 +6,16 @@ import { GridItem } from '@/components/grid/grid-item';
 import { ImageCard } from '@/components/image-card/image-card';
 import { Message } from '@/components/message/message';
 import { routes } from '@/constants/routes';
-import { NextPage } from 'next';
+import { metaTitle } from '@/utils/meta-title';
+import { Metadata, NextPage } from 'next';
 import Link from 'next/link';
 
 const highPriorityImageCount = 4;
+
+export const metadata: Metadata = {
+  title: metaTitle('Home'),
+  description: 'View cat images, vote and save your favourites',
+};
 
 const HomePage: NextPage = async () => {
   const [images, favourites, votes] = await Promise.all([
