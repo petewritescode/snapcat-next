@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { routes } from '@/constants/routes';
 
 export const Logo: FC = () => (
-  <Link href={routes.home} className={styles.logo}>
+  <Link href={routes.home} className={styles.logo} aria-label="Snapcat home">
     <div className={styles.icon}>
       <FontAwesomeIcon icon={faCat} />
     </div>
