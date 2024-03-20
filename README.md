@@ -29,7 +29,7 @@ This will allow you to save favourites and vote on images.
   the API key.
 - **[Optimistic updates](https://react.dev/reference/react/useOptimistic)** -
   Giving instant UI feedback and making the app feel more responsive.
-- **[Middleware](/src/middleware/ts)** - Used to generate a random user ID on
+- **[Middleware](/src/middleware.ts)** - Used to generate a random user ID on
   the first visit and store it in a cookie. This is the used to fetch
   user-specific data during server-side rendering, rather than making API calls
   in the browser.
