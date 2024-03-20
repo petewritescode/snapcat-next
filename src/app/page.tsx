@@ -13,7 +13,7 @@ import Link from 'next/link';
 const highPriorityImageCount = 4;
 
 export const metadata: Metadata = {
-  title: metaTitle('Home'),
+  title: metaTitle(),
   description: 'View cat images, vote and save your favourites',
 };
 
