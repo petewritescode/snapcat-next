@@ -10,7 +10,7 @@ describe('Header', () => {
     const header = screen.getByRole('banner');
 
     expect(
-      within(header).getByRole('link', { name: 'Snapcat' }),
+      within(header).getByRole('link', { name: 'Snapcat home' }),
     ).toBeInTheDocument();
 
     expect(within(header).getByRole('link', { name: 'Home' })).toHaveAttribute(
