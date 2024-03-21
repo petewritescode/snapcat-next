@@ -69,3 +69,9 @@ I'd love to hear what you think!
 
 Email: hello@petewritescode.com \
 LinkedIn: https://www.linkedin.com/in/pete-williams
+
+## Planned improvements
+
+- Testing - get React Canary features working in Jest, add Cypress tests.
+- Linting - configure rules, add Stylelint.
+- API calls - handle 100 item limit.
