@@ -28,8 +28,8 @@ const favourites: Favourites = {
 
 describe('getFavourites', () => {
   it('calls the correct API endpoint', async () => {
-    mockgetUserId.mockReturnValue('a1b2c3d4');
-    mockMakeRequest.mockReturnValue(Promise.resolve(apiFavourites));
+    mockgetUserId.mockResolvedValue('a1b2c3d4');
+    mockMakeRequest.mockResolvedValue(apiFavourites);
 
     await getFavourites();
 
@@ -39,8 +39,8 @@ describe('getFavourites', () => {
   });
 
   it('returns the mapped favourites', async () => {
-    mockgetUserId.mockReturnValue('a1b2c3d4');
-    mockMakeRequest.mockReturnValue(Promise.resolve(apiFavourites));
+    mockgetUserId.mockResolvedValue('a1b2c3d4');
+    mockMakeRequest.mockResolvedValue(apiFavourites);
 
     const result = await getFavourites();
 

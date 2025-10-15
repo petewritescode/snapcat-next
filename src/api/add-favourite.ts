@@ -3,7 +3,7 @@ import { makeRequest } from './utils/make-request';
 import { getUserId } from '@/utils/get-user-id';
 
 export const addFavourite = async (imageId: string) => {
-  const userId = getUserId();
+  const userId = await getUserId();
 
   const body = JSON.stringify({
     sub_id: userId,

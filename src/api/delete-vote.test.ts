@@ -7,7 +7,7 @@ const mockMakeRequest = jest.mocked(makeRequest);
 
 describe('deleteVote', () => {
   it('calls the correct API endpoint', async () => {
-    mockMakeRequest.mockReturnValue(Promise.resolve());
+    mockMakeRequest.mockResolvedValue(undefined);
 
     await deleteVote(123456);
 

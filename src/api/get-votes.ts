@@ -5,7 +5,7 @@ import { getUserId } from '@/utils/get-user-id';
 import { Votes } from '@/types/votes';
 
 export const getVotes = async (): Promise<Votes> => {
-  const userId = getUserId();
+  const userId = await getUserId();
 
   const apiVotes = await makeRequest<ApiVote[]>(
     'votes?limit=100&attach_image=0&order=DESC',

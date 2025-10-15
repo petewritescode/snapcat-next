@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getRandomString } from './utils/get-random-string';
 import { cookieNames } from './constants/cookie-names';
 
-export const middleware = (request: NextRequest) => {
+export const proxy = (request: NextRequest) => {
   if (!request.cookies.has(cookieNames.userId)) {
     const userId = getRandomString(8);
 

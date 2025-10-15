@@ -35,7 +35,7 @@ const images: Image[] = [
 
 describe('getImages', () => {
   it('calls the correct API endpoint', async () => {
-    makeRequestMock.mockReturnValue(Promise.resolve(apiImages));
+    makeRequestMock.mockResolvedValue(apiImages);
 
     await getImages();
 
@@ -46,7 +46,7 @@ describe('getImages', () => {
   });
 
   it('returns the mapped images with additional properties stripped', async () => {
-    makeRequestMock.mockReturnValue(Promise.resolve(apiImages));
+    makeRequestMock.mockResolvedValue(apiImages);
 
     const result = await getImages();
 

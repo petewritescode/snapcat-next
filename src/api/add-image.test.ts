@@ -10,8 +10,8 @@ const mockMakeRequest = jest.mocked(makeRequest);
 
 describe('addImage', () => {
   it('calls the correct API endpoint', async () => {
-    mockgetUserId.mockReturnValue('a1b2c3d4');
-    mockMakeRequest.mockReturnValue(Promise.resolve());
+    mockgetUserId.mockResolvedValue('a1b2c3d4');
+    mockMakeRequest.mockResolvedValue(undefined);
     const image = new File([], 'image.jpg');
     const body = new FormData();
     body.append('sub_id', 'a1b2c3d4');

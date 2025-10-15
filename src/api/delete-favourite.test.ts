@@ -7,7 +7,7 @@ const mockMakeRequest = jest.mocked(makeRequest);
 
 describe('deleteFavourite', () => {
   it('calls the correct API endpoint', async () => {
-    mockMakeRequest.mockReturnValue(Promise.resolve());
+    mockMakeRequest.mockResolvedValue(undefined);
 
     await deleteFavourite(123456);
 

@@ -14,8 +14,8 @@ describe('getVotes', () => {
   it('calls the correct API endpoint', async () => {
     const apiVotes: ApiVote[] = [];
 
-    mockgetUserId.mockReturnValue('a1b2c3d4');
-    mockMakeRequest.mockReturnValue(Promise.resolve(apiVotes));
+    mockgetUserId.mockResolvedValue('a1b2c3d4');
+    mockMakeRequest.mockResolvedValue(apiVotes);
 
     await getVotes();
 
@@ -45,8 +45,8 @@ describe('getVotes', () => {
       bcd234: { score: -1 },
     };
 
-    mockgetUserId.mockReturnValue('a1b2c3d4');
-    mockMakeRequest.mockReturnValue(Promise.resolve(apiVotes));
+    mockgetUserId.mockResolvedValue('a1b2c3d4');
+    mockMakeRequest.mockResolvedValue(apiVotes);
 
     const result = await getVotes();
 
@@ -91,8 +91,8 @@ describe('getVotes', () => {
       abc123: { score: 2 },
     };
 
-    mockgetUserId.mockReturnValue('a1b2c3d4');
-    mockMakeRequest.mockReturnValue(Promise.resolve(apiVotes));
+    mockgetUserId.mockResolvedValue('a1b2c3d4');
+    mockMakeRequest.mockResolvedValue(apiVotes);
 
     const result = await getVotes();
 
@@ -120,8 +120,8 @@ describe('getVotes', () => {
       bcd234: { score: -1 },
     };
 
-    mockgetUserId.mockReturnValue('a1b2c3d4');
-    mockMakeRequest.mockReturnValue(Promise.resolve(apiVotes));
+    mockgetUserId.mockResolvedValue('a1b2c3d4');
+    mockMakeRequest.mockResolvedValue(apiVotes);
 
     const result = await getVotes();
 
@@ -182,8 +182,8 @@ describe('getVotes', () => {
       },
     };
 
-    mockgetUserId.mockReturnValue('a1b2c3d4');
-    mockMakeRequest.mockReturnValue(Promise.resolve(apiVotes));
+    mockgetUserId.mockResolvedValue('a1b2c3d4');
+    mockMakeRequest.mockResolvedValue(apiVotes);
 
     const result = await getVotes();
 

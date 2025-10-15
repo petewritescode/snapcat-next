@@ -5,7 +5,7 @@ import { ApiAddVoteResult } from '@/types/api-add-vote-result';
 import { voteDirectionScore } from '@/constants/vote-direction-score';
 
 export const addVote = async (imageId: string, direction: VoteDirection) => {
-  const userId = getUserId();
+  const userId = await getUserId();
 
   const body = JSON.stringify({
     sub_id: userId,

@@ -15,8 +15,8 @@ const apiResult: ApiAddVoteResult = {
 
 describe('addVote', () => {
   it('calls the correct API endpoint for upvotes', async () => {
-    mockgetUserId.mockReturnValue('a1b2c3d4');
-    mockMakeRequest.mockReturnValue(Promise.resolve(apiResult));
+    mockgetUserId.mockResolvedValue('a1b2c3d4');
+    mockMakeRequest.mockResolvedValue(apiResult);
 
     await addVote('abc123', 'up');
 
@@ -32,8 +32,8 @@ describe('addVote', () => {
   });
 
   it('calls the correct API endpoint for downvotes', async () => {
-    mockgetUserId.mockReturnValue('a1b2c3d4');
-    mockMakeRequest.mockReturnValue(Promise.resolve(apiResult));
+    mockgetUserId.mockResolvedValue('a1b2c3d4');
+    mockMakeRequest.mockResolvedValue(apiResult);
 
     await addVote('abc123', 'down');
 
@@ -49,8 +49,8 @@ describe('addVote', () => {
   });
 
   it('returns the new vote ID', async () => {
-    mockgetUserId.mockReturnValue('a1b2c3d4');
-    mockMakeRequest.mockReturnValue(Promise.resolve(apiResult));
+    mockgetUserId.mockResolvedValue('a1b2c3d4');
+    mockMakeRequest.mockResolvedValue(apiResult);
 
     const result = await addVote('abc123', 'up');
 

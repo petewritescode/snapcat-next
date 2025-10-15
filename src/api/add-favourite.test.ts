@@ -15,8 +15,8 @@ const apiResult: ApiAddFavouriteResult = {
 
 describe('addFavourite', () => {
   it('calls the correct API endpoint', async () => {
-    mockgetUserId.mockReturnValue('a1b2c3d4');
-    mockMakeRequest.mockReturnValue(Promise.resolve(apiResult));
+    mockgetUserId.mockResolvedValue('a1b2c3d4');
+    mockMakeRequest.mockResolvedValue(apiResult);
 
     await addFavourite('abc123');
 
@@ -28,8 +28,8 @@ describe('addFavourite', () => {
   });
 
   it('returns the new favourite ID', async () => {
-    mockgetUserId.mockReturnValue('a1b2c3d4');
-    mockMakeRequest.mockReturnValue(Promise.resolve(apiResult));
+    mockgetUserId.mockResolvedValue('a1b2c3d4');
+    mockMakeRequest.mockResolvedValue(apiResult);
 
     const result = await addFavourite('abc123');
 

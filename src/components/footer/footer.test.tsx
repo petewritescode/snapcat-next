@@ -1,16 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import { Footer } from './footer';
-import { getUserId } from '@/utils/get-user-id';
 import { ignoreMarkupMatcher } from '@/jest/utils/ignore-markup-matcher';
-
-jest.mock('@/utils/get-user-id');
-
-const mockGetUserId = jest.mocked(getUserId);
 
 describe('Footer', () => {
   it('renders the user ID and credit byline', () => {
-    mockGetUserId.mockReturnValue('abc123');
-    render(<Footer />);
+    render(<Footer userId="abc123" />);
 
     expect(
       screen.getByText(
@@ -20,7 +14,7 @@ describe('Footer', () => {
   });
 
   it('renders a link to GitHub', () => {
-    render(<Footer />);
+    render(<Footer userId="abc123" />);
 
     const link = screen.getByRole('link', { name: 'Pete Williams' });
     expect(link).toHaveAttribute('href', 'https://github.com/petewritescode');

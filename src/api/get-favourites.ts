@@ -5,7 +5,7 @@ import { makeRequest } from './utils/make-request';
 import { mapFavourites } from './utils/map-favourites';
 
 export const getFavourites = async (): Promise<Favourites> => {
-  const userId = getUserId();
+  const userId = await getUserId();
 
   const apiFavourites = await makeRequest<ApiFavourite[]>(
     `favourites?limit=100&attach_image=0&order=DESC&sub_id=${encodeURIComponent(
