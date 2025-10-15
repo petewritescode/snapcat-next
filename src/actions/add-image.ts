@@ -2,7 +2,7 @@
 
 import { addImage } from '@/api/add-image';
 import { routes } from '@/constants/routes';
-import { revalidateTag } from 'next/cache';
+import { updateTag } from 'next/cache';
 import { redirect } from 'next/navigation';
 
 export const addImageAction = async (
@@ -21,6 +21,6 @@ export const addImageAction = async (
     return "Your file couldn't be saved, please make sure it's an image of a cat";
   }
 
-  revalidateTag('images');
+  updateTag('images');
   redirect(routes.home);
 };

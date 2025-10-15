@@ -1,6 +1,6 @@
 import { addImage } from '@/api/add-image';
 import { addImageAction } from './add-image';
-import { revalidateTag } from 'next/cache';
+import { updateTag } from 'next/cache';
 import { redirect } from 'next/navigation';
 
 jest.mock('@/api/add-image');
@@ -8,7 +8,7 @@ jest.mock('next/cache');
 jest.mock('next/navigation');
 
 const mockAddImage = jest.mocked(addImage);
-const mockRevalidateTag = jest.mocked(revalidateTag);
+const mockUpdateTag = jest.mocked(updateTag);
 const mockRedirect = jest.mocked(redirect);
 
 describe('addImageAction', () => {
@@ -48,8 +48,8 @@ describe('addImageAction', () => {
     expect(mockAddImage).toHaveBeenCalledTimes(1);
     expect(mockAddImage).toHaveBeenCalledWith(image);
     expect(result).toBe(undefined);
-    expect(mockRevalidateTag).toHaveBeenCalledTimes(1);
-    expect(mockRevalidateTag).toHaveBeenCalledWith('images');
+    expect(mockUpdateTag).toHaveBeenCalledTimes(1);
+    expect(mockUpdateTag).toHaveBeenCalledWith('images');
     expect(mockRedirect).toHaveBeenCalledTimes(1);
     expect(mockRedirect).toHaveBeenCalledWith('/');
   });
