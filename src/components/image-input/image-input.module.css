@@ -1,0 +1,31 @@
+.input {
+  display: none;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--spacing-base) * 12);
+  background-color: var(--color-mid-grey);
+  border: var(--border-width-s) solid var(--color-dark-grey);
+  border-radius: var(--border-radius-m);
+  font-size: calc(var(--font-size-base) * 2);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+
+  .input:disabled + & {
+    color: var(--color-black-40);
+  }
+
+  .input:not(:disabled) + & {
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-light-grey);
+    }
+  }
+}
+
+.icon {
+  margin-bottom: var(--spacing-m);
+}

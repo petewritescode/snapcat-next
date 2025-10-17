@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styles from './header.module.scss';
+import styles from './header.module.css';
 import { Container } from '../container/container';
 import { Logo } from '../logo/logo';
 import { Navigation } from '../navigation/navigation';

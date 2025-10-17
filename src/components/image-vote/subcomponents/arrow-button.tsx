@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FC } from 'react';
-import styles from './arrow-button.module.scss';
+import styles from './arrow-button.module.css';
 import { SubmitButton } from '../../submit-button/submit-button';
 import clsx from 'clsx';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';

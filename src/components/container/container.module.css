@@ -1,0 +1,11 @@
+.container {
+  max-width: calc(var(--spacing-base) * 300);
+  margin-right: auto;
+  margin-left: auto;
+  padding: var(--spacing-l) var(--spacing-m);
+}
+
+.shallow {
+  padding-top: var(--spacing-m);
+  padding-bottom: var(--spacing-m);
+}

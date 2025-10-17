@@ -2,9 +2,8 @@
 
 Code sample app built using [Next.js](https://nextjs.org/),
 [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/),
-[Sass](https://sass-lang.com/), [ESLint](https://eslint.org/),
-[Prettier](https://prettier.io/), [Jest](https://jestjs.io/) and
-[Testing Library](https://testing-library.com/).
+[ESLint](https://eslint.org/), [Prettier](https://prettier.io/),
+[Jest](https://jestjs.io/) and [Testing Library](https://testing-library.com/).
 
 ![Snapcat](/docs/snapcat.png)
 

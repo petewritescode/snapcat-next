@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import styles from './grid.module.scss';
+import styles from './grid.module.css';
 
 export type GridProps = {
   children: ReactNode;

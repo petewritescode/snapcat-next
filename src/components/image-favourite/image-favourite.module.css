@@ -1,0 +1,23 @@
+.favourite {
+  --size: calc(var(--spacing-base) * 10);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--size);
+  height: var(--size);
+  background-color: var(--color-white-75);
+  border-radius: var(--border-radius-full);
+  box-shadow: var(--box-shadow);
+  font-size: calc(var(--font-size-base) * 1.5);
+  color: var(--color-black);
+
+  &.active {
+    color: var(--color-red);
+  }
+}
+
+.icon {
+  position: relative;
+  top: calc(var(--spacing-base) * 0.25);
+}

@@ -8,7 +8,7 @@ import { FC, useOptimistic, useState } from 'react';
 import { SubmitButton } from '../submit-button/submit-button';
 import { deleteFavouriteAction } from '@/actions/delete-favourite';
 import { addFavouriteAction } from '@/actions/add-favourite';
-import styles from './image-favourite.module.scss';
+import styles from './image-favourite.module.css';
 import { Favourite } from '@/types/favourite';
 import { optimisticUpdateId } from '@/constants/optimistic-update-id';
 

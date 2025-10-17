@@ -1,0 +1,37 @@
+:root {
+  /* Spacing */
+  --spacing-base: 0.25rem;
+  --spacing-s: calc(var(--spacing-base) * 2);
+  --spacing-m: calc(var(--spacing-base) * 4);
+  --spacing-l: calc(var(--spacing-base) * 8);
+
+  /* Border width */
+  --border-width-s: 0.0625rem;
+  --border-width-m: 0.5rem;
+
+  /* Border radius */
+  --border-radius-s: 0.25rem;
+  --border-radius-m: 0.5rem;
+  --border-radius-l: 1rem;
+  --border-radius-half: 50%;
+  --border-radius-full: 1000rem;
+
+  /* Font size */
+  --font-size-base: 1rem;
+
+  /* Color */
+  --color-white: rgb(255, 255, 255);
+  --color-white-75: rgba(255, 255, 255, 0.75);
+  --color-light-grey: rgb(242, 242, 242);
+  --color-mid-grey: rgb(224, 224, 224);
+  --color-dark-grey: rgb(51, 51, 51);
+  --color-black: rgb(0, 0, 0);
+  --color-black-10: rgba(0, 0, 0, 0.1);
+  --color-black-20: rgba(0, 0, 0, 0.2);
+  --color-black-40: rgba(0, 0, 0, 0.4);
+  --color-red: rgb(230, 0, 35);
+  --color-red-20: rgba(230, 0, 35, 0.2);
+
+  /* Box shadow */
+  --box-shadow: 0 0.25rem 0.5rem var(--color-black-10);
+}

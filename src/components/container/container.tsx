@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { FC, ReactNode } from 'react';
-import styles from './container.module.scss';
+import styles from './container.module.css';
 
 export type ContainerProps = {
   children: ReactNode;

@@ -1,0 +1,27 @@
+.link {
+  padding: var(--spacing-s);
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: var(--border-radius-s);
+  background-color: var(--color-black-20);
+
+  &:not(.active):hover {
+    background-color: var(--color-black-40);
+  }
+
+  &.active {
+    background-color: var(--color-white);
+    color: var(--color-red);
+  }
+}
+
+.icon {
+  display: none;
+}
+
+@media (min-width: 32rem) {
+  .icon {
+    display: inline-block;
+    margin-right: var(--spacing-s);
+  }
+}

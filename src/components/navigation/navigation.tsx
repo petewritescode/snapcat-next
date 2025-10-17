@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styles from './navigation.module.scss';
+import styles from './navigation.module.css';
 import { faHome, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 import { NavigationLink } from './subcomponents/navigation-link';
 import { routes } from '@/constants/routes';

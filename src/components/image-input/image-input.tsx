@@ -3,7 +3,7 @@
 import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ChangeEvent, FC, useId } from 'react';
-import styles from './image-input.module.scss';
+import styles from './image-input.module.css';
 import { useFormStatus } from 'react-dom';
 
 export type ImageInputProps = {

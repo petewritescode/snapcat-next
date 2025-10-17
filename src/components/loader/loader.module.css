@@ -1,0 +1,18 @@
+.loader {
+  --size: calc(var(--spacing-base) * 30);
+
+  width: var(--size);
+  height: var(--size);
+  margin-right: auto;
+  margin-left: auto;
+  border: var(--border-width-m) solid var(--color-red-20);
+  border-top-color: var(--color-red);
+  border-radius: var(--border-radius-half);
+  animation: spin 1s infinite ease-in-out;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

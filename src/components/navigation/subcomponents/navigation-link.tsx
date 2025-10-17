@@ -4,7 +4,7 @@ import { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import clsx from 'clsx';
-import styles from './navigation-link.module.scss';
+import styles from './navigation-link.module.css';
 import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
 

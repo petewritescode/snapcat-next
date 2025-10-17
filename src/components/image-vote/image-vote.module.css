@@ -1,0 +1,14 @@
+.votes {
+  display: flex;
+  align-items: center;
+  height: calc(var(--spacing-base) * 10);
+  background-color: var(--color-white-75);
+  border-radius: var(--border-radius-full);
+  box-shadow: var(--box-shadow);
+}
+
+.score {
+  width: calc(var(--spacing-base) * 5);
+  text-align: center;
+  font-size: calc(var(--font-size-base) * 1.125);
+}

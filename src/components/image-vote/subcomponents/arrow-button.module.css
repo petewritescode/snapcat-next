@@ -1,0 +1,17 @@
+.button {
+  --size: calc(var(--spacing-base) * 10);
+
+  width: var(--size);
+  height: var(--size);
+  font-size: calc(var(--font-size-base) * 1.125);
+  color: var(--color-black);
+
+  &.active {
+    color: var(--color-red);
+  }
+}
+
+.icon {
+  position: relative;
+  top: calc(var(--spacing-base) * 0.25);
+}

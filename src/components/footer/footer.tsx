@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styles from './footer.module.scss';
+import styles from './footer.module.css';
 import { Container } from '../container/container';
 
 export type FooterProps = {

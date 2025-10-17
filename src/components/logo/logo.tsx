@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCat } from '@fortawesome/free-solid-svg-icons';
-import styles from './logo.module.scss';
+import styles from './logo.module.css';
 import Link from 'next/link';
 import { routes } from '@/constants/routes';
 

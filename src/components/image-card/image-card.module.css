@@ -1,0 +1,25 @@
+.imageCard {
+  position: relative;
+  height: 0;
+  padding-bottom: 100%;
+  overflow: hidden;
+  border-radius: var(--border-radius-m);
+  background-color: var(--color-mid-grey);
+  box-shadow: var(--box-shadow);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.favourite {
+  position: absolute;
+  top: var(--spacing-s);
+  right: var(--spacing-s);
+}
+
+.vote {
+  position: absolute;
+  bottom: var(--spacing-s);
+  right: var(--spacing-s);
+}

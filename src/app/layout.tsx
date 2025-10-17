@@ -1,8 +1,9 @@
+import '@/styles/theme.css';
+import '@/styles/global.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config as fontAwesomeConfig } from '@fortawesome/fontawesome-svg-core';
 import { AppLayout } from '@/components/app-layout/app-layout';
-import '@/styles/base.scss';
-import styles from './layout.module.scss';
+import styles from './layout.module.css';
 import clsx from 'clsx';
 import { DM_Sans } from 'next/font/google';
 import { FC, ReactNode } from 'react';

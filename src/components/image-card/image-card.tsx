@@ -1,6 +1,6 @@
 import NextImage from 'next/image';
 import { FC } from 'react';
-import styles from './image-card.module.scss';
+import styles from './image-card.module.css';
 import { Image } from '@/types/image';
 import { Favourite } from '@/types/favourite';
 import { ImageFavourite } from '../image-favourite/image-favourite';

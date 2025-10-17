@@ -1,9 +1,0 @@
-@use '@/styles/tokens' as tokens;
-
-.list {
-  display: flex;
-}
-
-.item:not(:last-child) {
-  margin-right: tokens.$spacing-m;
-}
