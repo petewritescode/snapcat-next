@@ -5,8 +5,6 @@ import {
   useFormStatus,
 } from 'react-dom';
 import { SubmitButton } from './submit-button';
-import userEvent from '@testing-library/user-event';
-import { FormEvent } from 'react';
 
 jest.mock('react-dom', () => ({
   ...jest.requireActual('react-dom'),
@@ -65,8 +63,6 @@ describe('SubmitButton', () => {
     ).toBeDisabled();
   });
 
-  // TODO Can't yet be tested because it relies on React/ReactDOM canary
-  // features and Jest only has access to the stable version specified in
-  // package.json
-  it.todo('fires the callback on submission');
+  // Can't test without a running Next.js server - consider moving to Cypress
+  it.todo('calls the form action on submission');
 });

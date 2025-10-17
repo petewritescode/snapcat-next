@@ -70,7 +70,9 @@ export const ImageVote: FC<ImageVoteProps> = ({
         onClick={handleSubmit('up')}
       />
 
-      <div className={styles.score}>{optimisticVote?.score ?? 0}</div>
+      <div className={styles.score} data-testid="vote-score">
+        {optimisticVote?.score ?? 0}
+      </div>
 
       <ArrowButton
         icon={faArrowDown}

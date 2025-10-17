@@ -6,7 +6,11 @@ import { ChangeEvent, FC, useId } from 'react';
 import styles from './image-input.module.scss';
 import { useFormStatus } from 'react-dom';
 
-export const ImageInput: FC = () => {
+export type ImageInputProps = {
+  errorMessageId?: string;
+};
+
+export const ImageInput: FC<ImageInputProps> = ({ errorMessageId }) => {
   const id = useId();
   const { pending } = useFormStatus();
 
@@ -24,6 +28,8 @@ export const ImageInput: FC = () => {
         name="image"
         disabled={pending}
         onChange={handleChange}
+        aria-invalid={errorMessageId ? true : undefined}
+        aria-errormessage={errorMessageId}
       />
 
       <label className={styles.label} htmlFor={id}>

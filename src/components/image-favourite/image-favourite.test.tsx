@@ -1,6 +1,23 @@
+import { render, screen } from '@testing-library/react';
+import { ImageFavourite } from './image-favourite';
+
 describe('ImageFavourite', () => {
-  // TODO Can't yet be tested because it relies on React/ReactDOM canary
-  // features and Jest only has access to the stable version specified in
-  // package.json
-  it.todo('works as expected');
+  it('renders an add favourite button if the image is not favourited', () => {
+    render(<ImageFavourite imageId="a1b2c3" />);
+
+    expect(
+      screen.getByRole('button', { name: 'Add favourite' }),
+    ).toBeInTheDocument();
+  });
+
+  it('renders a remove favourite button if the image is favourited', () => {
+    render(<ImageFavourite imageId="a1b2c3" favourite={{ id: 123 }} />);
+
+    expect(
+      screen.getByRole('button', { name: 'Remove favourite' }),
+    ).toBeInTheDocument();
+  });
+
+  // Can't test without a running Next.js server - consider moving to Cypress
+  it.todo('calls the server function on click');
 });
