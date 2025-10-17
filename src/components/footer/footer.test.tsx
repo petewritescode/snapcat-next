@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { Footer } from './footer';
-import { ignoreMarkupMatcher } from '@/jest/utils/ignore-markup-matcher';
+import { ignoreMarkupMatcher } from '@/test-utils/ignore-markup-matcher';
 
 describe('Footer', () => {
   it('renders the user ID and credit byline', () => {

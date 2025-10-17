@@ -8,7 +8,7 @@ export type ProjectConfig = Exclude<
   string
 >;
 
-export const jsdomFilePattern = '<rootDir>/src/(components|jest)/';
+export const jsdomFilePattern = '<rootDir>/src/(components|test-utils)/';
 
 export const sharedProjectConfig: ProjectConfig = {
   clearMocks: true,
