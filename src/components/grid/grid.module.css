@@ -1,5 +1,7 @@
 .grid {
-  display: flex;
-  flex-wrap: wrap;
-  margin: calc(var(--spacing-s) * -1);
+  --item-min-width: min(calc(var(--spacing-base) * 60), 100%);
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--item-min-width), 1fr));
+  gap: var(--spacing-m);
 }
